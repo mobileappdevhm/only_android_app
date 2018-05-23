@@ -7,7 +7,7 @@
     android:id="@+id/courses_layout">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/courses_toolbar"
+        android:id="@+id/map_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"

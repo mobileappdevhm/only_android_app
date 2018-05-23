@@ -1,5 +1,7 @@
 package felix.peither.de.cie_for_android;
 
+import android.support.v4.app.Fragment;
+import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.icu.text.MeasureFormat;
 import android.os.Build;
@@ -31,6 +33,8 @@ public class HomePage extends AppCompatActivity {
 
     private ArrayList<Course> courseList;
 
+    private Map map = new Map();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,7 @@ public class HomePage extends AppCompatActivity {
         //toolbar = (Toolbar) findViewById(R.id.courses_toolbar);
 
         courseList = courseGetter.getCourses();
+
 
         sv = (ScrollView) findViewById(R.id.scroll_view);
 
@@ -59,7 +64,7 @@ public class HomePage extends AppCompatActivity {
                         make_favorite_page();
                         break;
                     case R.id.map_button:
-                        make_map_page();
+                        make_map_page(map);
                         break;
                 }
                 return true;
@@ -124,19 +129,20 @@ public class HomePage extends AppCompatActivity {
 
     }
 
-    private void make_map_page() {
+    private void make_map_page(Fragment fragment) {
 
-        sv.removeAllViews();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_map, fragment).commit();
+        //sv.removeAllViews();
 
-        Toolbar toolbar = new Toolbar(this);
-        toolbar.setTitle("Map");
-        toolbar.setBackgroundColor(Color.LTGRAY);
-        LinearLayout inner_layout = new LinearLayout(this);
+        //Toolbar toolbar = new Toolbar(this);
+        //toolbar.setTitle("Map");
+        //toolbar.setBackgroundColor(Color.LTGRAY);
+        //LinearLayout inner_layout = new LinearLayout(this);
 
-        LinearLayout.LayoutParams clp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        inner_layout.addView(toolbar, clp);
+        //LinearLayout.LayoutParams clp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        //inner_layout.addView(toolbar, clp);
 
-        sv.addView(inner_layout, clp);
+        //sv.addView(inner_layout, clp);
 
     }
 }
