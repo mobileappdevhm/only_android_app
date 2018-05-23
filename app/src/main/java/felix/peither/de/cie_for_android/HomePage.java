@@ -58,6 +58,9 @@ public class HomePage extends AppCompatActivity {
                     case R.id.favorites_button:
                         make_favorite_page();
                         break;
+                    case R.id.map_button:
+                        make_map_page();
+                        break;
                 }
                 return true;
             }
@@ -111,6 +114,22 @@ public class HomePage extends AppCompatActivity {
 
         Toolbar toolbar = new Toolbar(this);
         toolbar.setTitle("Favorites");
+        toolbar.setBackgroundColor(Color.LTGRAY);
+        LinearLayout inner_layout = new LinearLayout(this);
+
+        LinearLayout.LayoutParams clp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        inner_layout.addView(toolbar, clp);
+
+        sv.addView(inner_layout, clp);
+
+    }
+
+    private void make_map_page() {
+
+        sv.removeAllViews();
+
+        Toolbar toolbar = new Toolbar(this);
+        toolbar.setTitle("Map");
         toolbar.setBackgroundColor(Color.LTGRAY);
         LinearLayout inner_layout = new LinearLayout(this);
 

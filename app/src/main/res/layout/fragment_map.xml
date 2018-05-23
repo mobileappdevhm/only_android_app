@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/courses_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/Lothstraße"
+        android:layout_width="192dp"
+        android:layout_height="260dp"
+        android:layout_weight="1"
+        android:scaleType="centerInside"
+        android:src="@drawable/Lothstraße" />
+
+    <ImageView
+        android:id="@+id/Karlstraße"
+        android:layout_width="191dp"
+        android:layout_height="144dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:baselineAligned="false"
+        android:cropToPadding="false"
+        android:scaleType="centerInside"
+        android:src="@drawable/Karlstraße"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/Pasing"
+        android:layout_width="426dp"
+        android:layout_height="232dp"
+        android:layout_weight="1"
+        android:scaleType="centerInside"
+        android:src="@drawable/Pasing" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/courses_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:title="Map" />
+
+
+</LinearLayout>
+

@@ -19,15 +19,15 @@
         android:layout_gravity="bottom">
 
         <android.support.design.widget.BottomNavigationView
+            android:id="@+id/nav_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/nav_bar"
             android:layout_gravity="bottom"
             android:background="#ffffff"
-            app:menu="@menu/menu_nav"/>
+            app:menu="@menu/menu_nav" />
 
     </FrameLayout>
-    
+
 
 
 </android.support.design.widget.CoordinatorLayout>
