@@ -5,33 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:design="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/home_layout"
     tools:context=".HomePage">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/courses_toolbar"
-        android:layout_height="?attr/actionBarSize"
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/Theme.AppCompat.Light" />
+        android:layout_height="match_parent">
+    </ScrollView>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom">
 
-
+        <android.support.design.widget.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nav_bar"
+            android:layout_gravity="bottom"
+            android:background="#ffffff"
+            app:menu="@menu/menu_nav"/>
 
     </FrameLayout>
     
-    <android.support.design.widget.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nav_bar"
-        android:layout_gravity="bottom"
-        android:background="@color/colorPrimary"
-        app:menu="@menu/menu_nav"/>
+
 
 </android.support.design.widget.CoordinatorLayout>

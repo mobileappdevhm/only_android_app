@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/home_button"
         android:title="Home"
         android:icon="@drawable/ic_home"
         />
 
     <item
+        android:id="@+id/courses_button"
         android:title="Courses"
         android:icon="@drawable/ic_list"
         />
 
     <item
+        android:id="@+id/favorites_button"
         android:title="Favorites"
         android:icon="@drawable/ic_favorite"
         />
