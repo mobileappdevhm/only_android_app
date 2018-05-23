@@ -2,7 +2,10 @@ package felix.peither.de.cie_for_android;
 
 import android.graphics.Color;
 import android.icu.text.MeasureFormat;
+import android.os.Build;
+import android.service.quicksettings.Tile;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.BottomNavigationView;
@@ -11,6 +14,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -23,7 +27,9 @@ public class HomePage extends AppCompatActivity {
     ScrollView sv;
     //Toolbar toolbar;
 
-    private List<Course> courseList = new ArrayList<>();
+    private final CourseGetter courseGetter = new CourseGetter();
+
+    private ArrayList<Course> courseList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,8 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         //toolbar = (Toolbar) findViewById(R.id.courses_toolbar);
+
+        courseList = courseGetter.getCourses();
 
         sv = (ScrollView) findViewById(R.id.scroll_view);
 
@@ -54,18 +62,7 @@ public class HomePage extends AppCompatActivity {
                 return true;
             }
         });
-
-//        nav_bar.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
-//            @Override
-//            public void onNavigationItemReselected(@NonNull MenuItem item) {
-//
-//            }
-//        });
-
         make_home_page();
-        // this_layout.addView(inner_layout);
-        // ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(200,200);
-        // this_layout.addView(inner_layout, lp);
     }
 
     private void make_course_page() {
@@ -75,12 +72,21 @@ public class HomePage extends AppCompatActivity {
         Toolbar toolbar = new Toolbar(this);
         toolbar.setTitle("Courses");
         toolbar.setBackgroundColor(Color.LTGRAY);
+        LinearLayout.LayoutParams match_parent_ll = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         LinearLayout inner_layout = new LinearLayout(this);
+        inner_layout.setOrientation(LinearLayout.VERTICAL);
+        inner_layout.addView(toolbar, match_parent_ll);
 
-        LinearLayout.LayoutParams clp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        inner_layout.addView(toolbar, clp);
+        LinearLayout.LayoutParams wrap_content_ll = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-        sv.addView(inner_layout, clp);
+        for (Course course: courseList) {
+            Button btn = new Button(this);
+            btn.setText(course.getName());
+
+            inner_layout.addView(btn, wrap_content_ll);
+        }
+
+        sv.addView(inner_layout);
     }
 
     private void make_home_page() {
