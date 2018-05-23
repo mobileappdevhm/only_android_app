@@ -18,6 +18,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom">
 
+        <!-- FrameLayout for the map -->
+        <FrameLayout
+            android:id="@+id/fragment_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></FrameLayout>
+
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/nav_bar"
             android:layout_width="match_parent"
@@ -27,7 +33,6 @@
             app:menu="@menu/menu_nav" />
 
     </FrameLayout>
-
 
 
 </android.support.design.widget.CoordinatorLayout>

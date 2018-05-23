@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_map"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:visibility="visible">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/map_toolbar"
@@ -18,52 +17,39 @@
 
     <ImageView
         android:id="@+id/karlstrasse"
-        android:layout_width="191dp"
-        android:layout_height="191dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/map_toolbar"
         android:scaleType="fitStart"
-        android:src="@drawable/karlstrasse"
-        android:visibility="visible" />
+        android:src="@drawable/karlstrasse" />
 
     <ImageView
         android:id="@+id/lothstrasse"
-        android:layout_width="191dp"
-        android:layout_height="191dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/map_toolbar"
         android:scaleType="fitStart"
-        android:src="@drawable/lothstrasse"
-        android:visibility="visible" />
+        android:src="@drawable/lothstrasse" />
 
     <ImageView
         android:id="@+id/pasing"
-        android:layout_width="191dp"
-        android:layout_height="191dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="113dp"
         android:scaleType="fitStart"
-        android:src="@drawable/pasing"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="62dp"
-        android:text="Lothstraße"
-        android:visibility="visible" />
+        android:src="@drawable/pasing" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="62dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_marginEnd="49dp"
         android:text="Karlstraße" />
 
     <TextView
@@ -72,8 +58,18 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView2"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="83dp"
         android:text="Pasing" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="245dp"
+        android:text="Lothstraße" />
 
 
 </RelativeLayout>

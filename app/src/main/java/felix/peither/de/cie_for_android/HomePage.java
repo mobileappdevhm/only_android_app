@@ -11,6 +11,7 @@ import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
 import java.util.ArrayList;
@@ -64,7 +66,7 @@ public class HomePage extends AppCompatActivity {
                         make_favorite_page();
                         break;
                     case R.id.map_button:
-                        make_map_page(map);
+                        make_map_page();
                         break;
                 }
                 return true;
@@ -74,6 +76,11 @@ public class HomePage extends AppCompatActivity {
     }
 
     private void make_course_page() {
+
+        // Hiding the map layer
+        Map map = new Map();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_map, map).detach(map).commit();
 
         sv.removeAllViews();
 
@@ -99,6 +106,11 @@ public class HomePage extends AppCompatActivity {
 
     private void make_home_page() {
 
+        // Hiding the map layer
+        Map map = new Map();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_map, map).detach(map).commit();
+
         sv.removeAllViews();
 
         Toolbar toolbar = new Toolbar(this);
@@ -115,6 +127,11 @@ public class HomePage extends AppCompatActivity {
 
     private void make_favorite_page() {
 
+        // Hiding the map layer
+        Map map = new Map();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_map, map).detach(map).commit();
+
         sv.removeAllViews();
 
         Toolbar toolbar = new Toolbar(this);
@@ -129,20 +146,31 @@ public class HomePage extends AppCompatActivity {
 
     }
 
-    private void make_map_page(Fragment fragment) {
+    private void make_map_page() {
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_map, fragment).commit();
-        //sv.removeAllViews();
+        sv.removeAllViews();
+
+        // Creating a Fragment
+        Map map = new Map();
+        // FragmentManager fragmentManager = map.getChildFragmentManager();
+        // fragmentManager.beginTransaction().replace(R.id.fragment_map, map).commit();
+
+        // Creating the View for the ButtomNavigationBar Map
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_map, map).commit();
+
+
+        // sv.removeAllViews();
 
         //Toolbar toolbar = new Toolbar(this);
         //toolbar.setTitle("Map");
-        //toolbar.setBackgroundColor(Color.LTGRAY);
-        //LinearLayout inner_layout = new LinearLayout(this);
+        //toolbar.setBackgroundColor(Color.LTGRAY)
+       // RelativeLayout relative = new RelativeLayout(this);
 
-        //LinearLayout.LayoutParams clp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        //inner_layout.addView(toolbar, clp);
+        //RelativeLayout.LayoutParams clp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        //relative.addView(toolbar, clp);
 
-        //sv.addView(inner_layout, clp);
+        //sv.addView(relative, clp);
 
     }
 }
