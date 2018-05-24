@@ -12,7 +12,7 @@ public class CourseGetter {
         ArrayList<Course> retList = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
-            retList.add(new Course("Course" + Integer.toString(i), "Prof." + Integer.toString(i)));
+            retList.add(new Course("Course" + Integer.toString(i), "Prof." + Integer.toString(i), i));
         }
 
         return retList;

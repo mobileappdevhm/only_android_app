@@ -14,7 +14,7 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/Theme.AppCompat.Light"
-        app:title="Courses" />
-
+        app:title="Courses"
+        app:navigationIcon="@drawable/ic_favorite"/>
 
 </LinearLayout>
