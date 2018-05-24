@@ -5,11 +5,13 @@ public class Course {
     private final String name;
     private final String professor;
     private final int course_ID;
+    private final String location;
 
-    Course(String name, String prof, int ID) {
+    Course(String name, String prof, int ID, String location) {
         this.name = name;
         this.professor = prof;
         this.course_ID = ID;
+        this.location = location;
     }
 
     public String getName() {

@@ -16,14 +16,18 @@ import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -82,6 +86,12 @@ public class HomePage extends AppCompatActivity {
         make_home_page();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.courses_menu, menu);
+        return true;
+    }
+
     private void make_course_page() {
 
         sv.removeAllViews();
@@ -99,8 +109,23 @@ public class HomePage extends AppCompatActivity {
         for (final Course course: courseList) {
             final Toolbar course_bar = new Toolbar(this);
             course_bar.setTitle(course.getName());
-            course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
+            if (favorites.contains(Integer.toString(course.getCourse_ID()))) {
+                course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
+            } else {
+                course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
+            }
             course_bar.setPadding(5,5,5,5);
+            course_bar.setClickable(true);
+            final AlertDialog.Builder info_dialog = new AlertDialog.Builder(this)
+                    .setTitle("Course Description")
+                    .setMessage("This is a description of a course :)")
+                    .setNeutralButton("Close", null);
+            course_bar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    info_dialog.create().show();
+                }
+            });
             course_bar.setSubtitle("by Professor: " + course.getProfessor());
             course_bar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
@@ -147,15 +172,45 @@ public class HomePage extends AppCompatActivity {
 
         sv.removeAllViews();
 
+        int fav_counter = 0;
+
         Toolbar toolbar = new Toolbar(this);
         toolbar.setTitle("Favorites");
         toolbar.setBackgroundColor(Color.LTGRAY);
         LinearLayout inner_layout = new LinearLayout(this);
-
+        inner_layout.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams clp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         inner_layout.addView(toolbar, clp);
 
-        sv.addView(inner_layout, clp);
+        for (final Course course: courseList) {
+            if (favorites.contains(Integer.toString(course.getCourse_ID()))) {
+                fav_counter++;
+                Toolbar fav_bar = new Toolbar(this);
+                fav_bar.setTitle(course.getName());
+                fav_bar.setSubtitle("by Prof. : " + course.getProfessor());
+                fav_bar.setNavigationIcon(R.drawable.ic_delete);
+                fav_bar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        editFavorites.remove(Integer.toString(course.getCourse_ID()));
+                        editFavorites.commit();
+                        make_favorite_page();
+                    }
+                });
+                inner_layout.addView(fav_bar, clp);
+            }
+        }
+
+        if (fav_counter == 0) {
+            TextView no_favs_yet = new TextView(this);
+            no_favs_yet.setText("No Favorites selected yet!");
+            no_favs_yet.setTextSize((float)20.0);
+            no_favs_yet.setPadding(0, 30, 0, 0);
+            no_favs_yet.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            inner_layout.addView(no_favs_yet, clp);
+        }
+
+        sv.addView(inner_layout);
 
     }
 }
