@@ -13,12 +13,12 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
-import velez2210.j.logindemo.R;
-
 public class CoursesActivity extends AppCompatActivity {
 
     Toolbar courses_toolbar;
     ScrollView sv;
+
+    private static final String SHARED_PREFS_NAME = "FAVORITES";
 
     private List<Course> course_list;
 
@@ -48,11 +48,11 @@ public class CoursesActivity extends AppCompatActivity {
         for (final Course course: course_list) {
             final Toolbar course_bar = new Toolbar(this);
             course_bar.setTitle(course.getName());
-//            if (favorites.contains(Integer.toString(course.getCourse_ID()))) {
-//                course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
-//            } else {
-//                course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
-//            }
+            if (favorites.contains(Integer.toString(course.getCourse_ID()))) {
+                course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
+            } else {
+                course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
+            }
             course_bar.setPadding(5,5,5,5);
             course_bar.setClickable(true);
             final AlertDialog.Builder info_dialog = new AlertDialog.Builder(this)
@@ -70,17 +70,17 @@ public class CoursesActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) { // save or delete the courses from
                     // favorites and change the icon accordingly
-//                    if (favorites.contains(Integer.toString(course.getCourse_ID()))) {
-//                        course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
-//                        editFavorites.remove(Integer.toString(course.getCourse_ID()));
-//                        editFavorites.commit();
-//                    } else {
-//                        course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
-//                        Gson gson = new Gson();
-//                        String json = gson.toJson(course);
-//                        editFavorites.putString(Integer.toString(course.getCourse_ID()), json);
-//                        editFavorites.commit();
-//                    }
+                    if (favorites.contains(Integer.toString(course.getCourse_ID()))) {
+                        course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
+                        favorites_editor.remove(Integer.toString(course.getCourse_ID()));
+                        favorites_editor.commit();
+                    } else {
+                        course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
+                        Gson gson = new Gson();
+                        String json = gson.toJson(course);
+                        favorites_editor.putString(Integer.toString(course.getCourse_ID()), json);
+                        favorites_editor.commit();
+                    }
                 }
             });
 

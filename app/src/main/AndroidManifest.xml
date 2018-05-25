@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="velez2210.j.logindemo">
+    package="felix.peither.de.cie_for_android">
 
     <application
         android:allowBackup="true"
@@ -9,15 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="felix.peither.de.cie_for_android.LoginActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="felix.peither.de.cie_for_android.SecondActivity" />
-        <activity android:name="felix.peither.de.cie_for_android.CoursesActivity"></activity>
+        <activity android:name=".SecondActivity" />
+        <activity android:name=".CoursesActivity" />
+        <activity android:name=".FavoritesActivity" />
+        <activity android:name=".LocationsActivity"></activity>
     </application>
 
 </manifest>

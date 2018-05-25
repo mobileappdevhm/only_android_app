@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import velez2210.j.logindemo.R;
-
 public class LoginActivity extends AppCompatActivity {
 
     private EditText Name;
@@ -40,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void validate (String userName, String userPassword){
-        if((userName.equals("Admin")) && (userPassword.equals("1234"))) {
+        if((userName.equals("")) && (userPassword.equals(""))) {
             Intent intent = new Intent(LoginActivity.this, SecondActivity.class);
             startActivity(intent);
         } else{
