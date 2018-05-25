@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import velez2210.j.logindemo.R;
+
 
 /**
  * A simple {@link Fragment} subclass.

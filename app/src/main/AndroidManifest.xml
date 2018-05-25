@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name="felix.peither.de.cie_for_android.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".CoursesActivity"></activity>
+        <activity android:name="felix.peither.de.cie_for_android.SecondActivity" />
+        <activity android:name="felix.peither.de.cie_for_android.CoursesActivity"></activity>
     </application>
 
 </manifest>

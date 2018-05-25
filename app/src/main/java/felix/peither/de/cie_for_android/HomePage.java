@@ -24,6 +24,8 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
+import velez2210.j.logindemo.R;
+
 public class HomePage extends AppCompatActivity {
 
     /**

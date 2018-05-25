@@ -1,4 +1,4 @@
-package velez2210.j.logindemo;
+package felix.peither.de.cie_for_android;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import velez2210.j.logindemo.R;
 
 public class LoginActivity extends AppCompatActivity {
 
