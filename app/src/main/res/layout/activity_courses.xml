@@ -7,22 +7,38 @@
     android:background="@drawable/gradient"
     tools:context="felix.peither.de.cie_for_android.CoursesActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/courses_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Courses" />
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="428dp"
         android:layout_height="147dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:contentDescription="@string/hmlogo"
+        app:layout_constraintBottom_toTopOf="@+id/courses_scroll_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courses_toolbar"
+        app:srcCompat="@drawable/hm" />
+
+    <ScrollView
+        android:id="@+id/courses_scroll_view"
+        android:layout_width="380dp"
+        android:layout_height="361dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/hm" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
