@@ -2,10 +2,13 @@ package felix.peither.de.cie_for_android;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.v4.app.Fragment;
+import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -56,6 +60,8 @@ public class HomePage extends AppCompatActivity {
      */
     private ArrayList<Course> courseList;
 
+    private Map map = new Map();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +72,7 @@ public class HomePage extends AppCompatActivity {
         editFavorites = favorites.edit();
 
         courseList = courseGetter.getCourses();
+
 
         sv = (ScrollView) findViewById(R.id.scroll_view);
 
@@ -85,6 +92,9 @@ public class HomePage extends AppCompatActivity {
                         break;
                     case R.id.favorites_button:
                         make_favorite_page();
+                        break;
+                    case R.id.map_button:
+                        make_map_page();
                         break;
                 }
                 return true;
@@ -110,6 +120,11 @@ public class HomePage extends AppCompatActivity {
      * builds the course page.
      */
     private void make_course_page() {
+
+        // Hiding the map layer
+        Map map = new Map();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_map, map).detach(map).commit();
 
         sv.removeAllViews();
 
@@ -177,6 +192,11 @@ public class HomePage extends AppCompatActivity {
      */
     private void make_home_page() {
 
+        // Hiding the map layer
+        Map map = new Map();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_map, map).detach(map).commit();
+
         sv.removeAllViews();
 
         Toolbar toolbar = new Toolbar(this);
@@ -198,6 +218,12 @@ public class HomePage extends AppCompatActivity {
     private void make_favorite_page() {
 
         // remove the previous page
+	
+        // Hiding the map layer
+        Map map = new Map();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_map, map).detach(map).commit();
+
         sv.removeAllViews();
 
         int fav_counter = 0;
@@ -261,6 +287,34 @@ public class HomePage extends AppCompatActivity {
         }
 
         sv.addView(inner_layout);
+
+    }
+
+    private void make_map_page() {
+
+        sv.removeAllViews();
+
+        // Creating a Fragment
+        Map map = new Map();
+        // FragmentManager fragmentManager = map.getChildFragmentManager();
+        // fragmentManager.beginTransaction().replace(R.id.fragment_map, map).commit();
+
+        // Creating the View for the ButtomNavigationBar Map
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_map, map).commit();
+
+
+        // sv.removeAllViews();
+
+        //Toolbar toolbar = new Toolbar(this);
+        //toolbar.setTitle("Map");
+        //toolbar.setBackgroundColor(Color.LTGRAY)
+       // RelativeLayout relative = new RelativeLayout(this);
+
+        //RelativeLayout.LayoutParams clp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        //relative.addView(toolbar, clp);
+
+        //sv.addView(relative, clp);
 
     }
 }
