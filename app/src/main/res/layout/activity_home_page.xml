@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:design="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomePage">
+    tools:context="felix.peither.de.cie_for_android.LoginActivity">
 
     <ScrollView
         android:id="@+id/scroll_view"
