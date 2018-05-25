@@ -62,6 +62,9 @@ public class HomePage extends AppCompatActivity {
      */
     private ArrayList<Course> courseList;
 
+    /**
+     * Map fragment
+     */
     private Map map = new Map();
 
     @Override
