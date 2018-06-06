@@ -17,12 +17,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="#11000000"
+        android:background="#FFFFFF"
         android:textSize="16dp"
         android:ems="10"
         android:hint="Username"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:backgroundTint="@android:color/darker_gray"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,9 +42,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="#11000000"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:background="#FFFFFF"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:backgroundTint="@android:color/darker_gray"
         android:textSize="16dp"
         android:ems="10"
         android:hint="Password"
@@ -65,6 +67,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Login"
+        android:backgroundTint="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +86,7 @@
         android:layout_marginTop="8dp"
         android:text="N' of incorrect attempts"
         android:textSize="16dp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -108,5 +111,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.59"
         app:srcCompat="@drawable/hm" />
+
+    <ScrollView
+        android:id="@+id/login_scroll_view"
+        android:layout_width="380dp"
+        android:layout_height="361dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+    </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>
