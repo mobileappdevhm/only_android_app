@@ -62,8 +62,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\Florian\Desktop\hm.png" />
-                                      <entry key="outputName" value="ic_hm" />
+                                      <entry key="imageAsset" value="C:\Users\Florian\Desktop\courses.png" />
+                                      <entry key="outputName" value="ic_courses_icon" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -73,7 +73,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
+                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
                           </map>
                         </option>
                       </PersistentState>
@@ -82,6 +82,11 @@
                 </map>
               </option>
             </PersistentState>
+          </value>
+        </entry>
+        <entry key="vectorWizard">
+          <value>
+            <PersistentState />
           </value>
         </entry>
       </map>
