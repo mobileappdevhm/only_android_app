@@ -16,11 +16,26 @@
                             <entry key="actionbar">
                               <value>
                                 <PersistentState>
+                                  <option name="children">
+                                    <map>
+                                      <entry key="image">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                    </map>
+                                  </option>
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/C:\Users\Florian\Desktop\Lothstraße.png" />
-                                      <entry key="outputName" value="ic_" />
+                                      <entry key="imageAsset" value="C:\Users\Florian\Desktop\hm.png" />
+                                      <entry key="outputName" value="ic_hm" />
                                       <entry key="themeColor" value="000000" />
                                     </map>
                                   </option>
@@ -47,8 +62,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/Bilder/hm_icon.jpg" />
-                                      <entry key="outputName" value="ic_hm_icon" />
+                                      <entry key="imageAsset" value="C:\Users\Florian\Desktop\hm.png" />
+                                      <entry key="outputName" value="ic_hm" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -58,7 +73,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
+                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>

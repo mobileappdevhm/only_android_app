@@ -8,6 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 public class LocationsActivity extends AppCompatActivity {
 
 //    ScrollView sv;
@@ -32,10 +34,24 @@ public class LocationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations);
 
-//        sv = (ScrollView) findViewById(R.id.locations_scroll_view);
-        locations_toolbar = (Toolbar) findViewById(R.id.locations_toolbar);
+//        sv = (ScrollView) findViewById(R.id.locations_scroll_view)
+//        locations_toolbar = (Toolbar) findViewById(R.id.locations_toolbar);
 
-        setSupportActionBar(locations_toolbar);
+//        setSupportActionBar(locations_toolbar);
+
+
+
+        /*
+        For zooming in and out by double tapping or scrolling into the map
+         */
+        PhotoView photoViewKarlstrasse = (PhotoView) findViewById(R.id.karlstrasse);
+        photoViewKarlstrasse.setImageResource(R.drawable.karlstrasse);
+
+        PhotoView photoViewLothstrasse = (PhotoView) findViewById(R.id.lothstrasse);
+        photoViewLothstrasse.setImageResource(R.drawable.lothstrasse);
+
+        PhotoView photoViewPasing = (PhotoView) findViewById(R.id.pasing);
+        photoViewPasing.setImageResource(R.drawable.pasing);
 
 //        make_campus_layouts();
 //        make_images();
