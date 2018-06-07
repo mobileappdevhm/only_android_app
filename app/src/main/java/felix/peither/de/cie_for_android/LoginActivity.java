@@ -1,36 +1,26 @@
 package felix.peither.de.cie_for_android;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-<<<<<<< HEAD
 import android.widget.LinearLayout;
-=======
->>>>>>> b3471867d8453abe2bdfb52e8cde0bb91c58c177
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
     Toolbar toolbar;
     MenuItem skipText;
     LinearLayout linearLayout;
     ScrollView scrollView;
-=======
     ScrollView sv;
 
->>>>>>> b3471867d8453abe2bdfb52e8cde0bb91c58c177
     private EditText Name;
     private EditText Password;
     private TextView Info;

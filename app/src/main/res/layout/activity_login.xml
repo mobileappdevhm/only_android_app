@@ -7,7 +7,6 @@
     android:background="@drawable/gradient"
     tools:context="felix.peither.de.cie_for_android.LoginActivity">
 
-<<<<<<< HEAD
     <android.support.v7.widget.Toolbar
         android:id="@+id/log_in_toolbar"
         android:layout_width="match_parent"
@@ -15,7 +14,6 @@
         app:title="@string/toolbar_title"
         app:titleTextColor="@color/cardview_light_background" />
 
-=======
     <EditText
         android:id="@+id/etName"
         android:layout_width="300dp"
@@ -82,28 +80,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
         app:layout_constraintVertical_bias="0.242" />
->>>>>>> b3471867d8453abe2bdfb52e8cde0bb91c58c177
 
     <ScrollView
         android:id="@+id/log_in_scroll_view"
         android:layout_width="wrap_content"
-<<<<<<< HEAD
         android:layout_height="361dp"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
         android:foregroundGravity="center"
-=======
-        android:layout_height="21dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="N' of incorrect attempts"
         android:textSize="16dp"
         android:textColor="@android:color/black"
->>>>>>> b3471867d8453abe2bdfb52e8cde0bb91c58c177
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
