@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        sv = (ScrollView) findViewById(R.id.login_scroll_view);
+        sv = (ScrollView) findViewById(R.id.log_in_scroll_view);
         Name = (EditText) findViewById(R.id.etName);
         Password = (EditText) findViewById(R.id.etPassword);
         Info = (TextView) findViewById(R.id.tvInfo);
@@ -63,8 +63,8 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.skip_login){
-            startActivity(new Intent(this, SecondActivity.class));
+        if (item.getItemId() == R.id.skip_login || item.getItemId() == R.id.skip_login_icon){
+            startActivity(new Intent(this, SkippedLoginActivity.class));
         }
 
         return true;

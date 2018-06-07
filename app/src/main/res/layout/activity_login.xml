@@ -11,75 +11,7 @@
         android:id="@+id/log_in_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/toolbar_title"
-        app:titleTextColor="@color/cardview_light_background" />
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="#FFFFFF"
-        android:textSize="16dp"
-        android:ems="10"
-        android:hint="Username"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/black"
-        android:backgroundTint="@android:color/darker_gray"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="#FFFFFF"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/black"
-        android:backgroundTint="@android:color/darker_gray"
-        android:textSize="16dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName"
-        app:layout_constraintVertical_bias="0.134" />
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Login"
-        android:backgroundTint="@android:color/darker_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:layout_constraintVertical_bias="0.242" />
+        app:title="@string/toolbar_title" />
 
     <ScrollView
         android:id="@+id/log_in_scroll_view"
@@ -154,8 +86,6 @@
                 android:ems="10"
                 android:hint="@string/username"
                 android:inputType="textPersonName"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
                 android:textSize="16sp" />
             <!--app:layout_constraintBottom_toBottomOf="parent"-->
             <!--app:layout_constraintEnd_toEndOf="parent"-->
@@ -178,8 +108,6 @@
                 android:ems="10"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
                 android:textSize="16sp" />
             <!--app:layout_constraintBottom_toBottomOf="parent"-->
             <!--app:layout_constraintEnd_toEndOf="parent"-->
@@ -215,7 +143,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/attempts"
-                android:textColor="@android:color/white"
                 android:textSize="16sp" />
             <!--app:layout_constraintBottom_toBottomOf="parent"-->
             <!--app:layout_constraintEnd_toEndOf="parent"-->
@@ -226,18 +153,6 @@
 
 
         </LinearLayout>
-    </ScrollView>
-
-
-    <ScrollView
-        android:id="@+id/login_scroll_view"
-        android:layout_width="380dp"
-        android:layout_height="361dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3">
-
     </ScrollView>
 
 
