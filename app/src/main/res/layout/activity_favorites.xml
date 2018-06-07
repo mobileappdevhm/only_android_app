@@ -10,13 +10,10 @@
         android:id="@+id/favorites_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="?attr/colorPrimary"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/Theme.AppCompat.Light"
-        app:title="Favorites"
-        tools:layout_editor_absoluteX="0dp" />
+        app:title="Favorites" />
 
     <ImageView
         android:id="@+id/imageView3"
