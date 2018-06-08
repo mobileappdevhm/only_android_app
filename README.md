@@ -1,8 +1,8 @@
 # CiE Android App - Team 3
 
+Version Android Studio 3.1.2
+
 This app is coded in Java an therefore only works on android.
-
-
 
 ### Development
 
