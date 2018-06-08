@@ -7,6 +7,7 @@ This app is coded in Java an therefore only works on android.
 ### Development
 
 You can take a look at our progress during each sprint in here:
+
 **Sprint 1**
 
 * [Backlog Sprint 1](https://docs.google.com/document/d/1TDKr-gDvjoQkNaqJfvYGT2VE66yA4puGP4riXLWrfc0/edit?usp=sharing)
