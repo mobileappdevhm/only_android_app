@@ -35,13 +35,3 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
 }
 
-apply plugin: 'com.github.kt3k.coveralls'
-
-coveralls {
-    jacocoReportPath = '${buildDir}/reports/coverage/debug/report.xml'
-}
-
-tasks.coveralls {
-    dependsOn 'connectedAndroidTest'
-    onlyIf {System.env.'CI'}
-}
