@@ -12,10 +12,10 @@ import javax.net.ssl.HttpsURLConnection;
 public class CourseGetter {
 
     public List<Course> getCourses() {
-        ArrayList<String> response = new ArrayList<>();
+        List<String> response = new ArrayList<>();
 
         try {
-            URL url = new URL("https://nine.wi.hm.edu/api/v2/courses/FK%2013/CIE/SoSe%2018 ");
+            URL url = new URL("https://nine.wi.hm.edu/api/v2/courses/FK%2013/CIE/SoSe%2018");
             HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
 
@@ -30,7 +30,6 @@ public class CourseGetter {
                 }
             }
             rd.close();
-
         } catch (Exception ex) {
 
         }
@@ -48,8 +47,6 @@ public class CourseGetter {
         String tmpLocation = "bla";
         String tmpDescription = "bla";
 
-
-
         for (String line: lines) {
             if (line.contains("\"id\"")) {
                 tmpCourse_ID = line; //.substring(6, line.length() - 2);
@@ -65,6 +62,7 @@ public class CourseGetter {
             } else if (line.contains("\"location\"")) {
                 tmpLocation = line;
             }
+            courseList.add(new Course("bla","bla","bla","bla","bla","bla"));
         }
 
         for (int i = 0; i < 10; i++) {
