@@ -33,4 +33,4 @@ before_script:
 
 script:
 - ./gradlew cobertura coveralls
-
+- ./gradlew clean build
