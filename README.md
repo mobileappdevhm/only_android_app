@@ -9,7 +9,7 @@ This app is coded in Java an therefore only works on android.
 You can take a look at our progress during each sprint in here:
 **Sprint 1**
 
-* [Backlog Sprint 1]()
+* [Backlog Sprint 1](https://docs.google.com/document/d/1TDKr-gDvjoQkNaqJfvYGT2VE66yA4puGP4riXLWrfc0/edit)
 
 * [Sprint 1](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_1_Page)
 
