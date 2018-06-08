@@ -8,4 +8,4 @@ Each course has a name, a location, a description, a location and an id. These i
 
 ## Travis
 
-[![Build Status](https://travis-ci.org/mobileappdevhm/only_android_app)](https://travis-ci.org/mobileappdevhm/only_android_app)
+[![Build Status](https://travis-ci.org/freeCodeCamp/how-to-contribute-to-open-source.svg?branch=master)](https://travis-ci.org/mobileappdevhm/only_android_app)
