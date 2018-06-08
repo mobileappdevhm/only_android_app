@@ -22,3 +22,5 @@ Backlog:
 ## Travis
 
 [![Build Status](https://travis-ci.org/freeCodeCamp/how-to-contribute-to-open-source.svg?branch=master)](https://travis-ci.org/mobileappdevhm/only_android_app)
+
+[![Coverage Status](https://coveralls.io/repos/github/mobileappdevhm/only_android_app/badge.svg)](https://coveralls.io/github/mobileappdevhm/only_android_app)
