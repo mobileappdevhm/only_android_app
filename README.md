@@ -10,12 +10,12 @@ You can take a look at our progress during each sprint in here:
 **Sprint 1**
 Backlog: 
 
-*[Sprint 1](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_1_Page)
+* [Sprint 1](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_1_Page)
 
 **Sprint 2**
 Backlog:
 
-*[Sprint 2](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_2_Page)
+* [Sprint 2](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_2_Page)
 
 ## Travis
 
