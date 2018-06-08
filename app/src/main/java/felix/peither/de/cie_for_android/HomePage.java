@@ -297,27 +297,12 @@ public class HomePage extends AppCompatActivity {
 
         sv.removeAllViews();
 
-        // Creating a Fragment
         Map map = new Map();
-        // FragmentManager fragmentManager = map.getChildFragmentManager();
-        // fragmentManager.beginTransaction().replace(R.id.fragment_map, map).commit();
 
         // Creating the View for the ButtomNavigationBar Map
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_map, map).commit();
 
-
-        // sv.removeAllViews();
-
-        //Toolbar toolbar = new Toolbar(this);
-        //toolbar.setTitle("Map");
-        //toolbar.setBackgroundColor(Color.LTGRAY)
-       // RelativeLayout relative = new RelativeLayout(this);
-
-        //RelativeLayout.LayoutParams clp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-        //relative.addView(toolbar, clp);
-
-        //sv.addView(relative, clp);
 
     }
 }
