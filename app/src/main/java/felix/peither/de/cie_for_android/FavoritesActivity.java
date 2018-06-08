@@ -1,6 +1,7 @@
 package felix.peither.de.cie_for_android;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +34,16 @@ public class FavoritesActivity extends AppCompatActivity {
         favorites = getSharedPreferences(SHARED_PREFS_NAME, MODE_PRIVATE);
         favorites_editor = favorites.edit();
 
+        favorites_toolbar = (Toolbar) findViewById(R.id.favorites_toolbar);
+        favorites_toolbar.setTitleTextColor(Color.WHITE);
+        favorites_toolbar.setNavigationIcon(R.drawable.ic_arrow_backward_white);
+        favorites_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         sv = (ScrollView) findViewById(R.id.favorites_scroll_view);
 
         courseGetter = new CourseGetter();
@@ -51,7 +62,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
         // this loop adds all favorites to the layout
         for (final Course course: course_list) {
-            if (favorites.contains(Integer.toString(course.getCourse_ID()))) {
+            if (favorites.contains(course.getCourse_ID())) {
                 fav_counter++;
 
                 // The Course
@@ -69,7 +80,7 @@ public class FavoritesActivity extends AppCompatActivity {
                 fav_bar.setNavigationOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) { // delete the course from favorites if the delete button is pressed
-                        favorites_editor.remove(Integer.toString(course.getCourse_ID()));
+                        favorites_editor.remove(course.getCourse_ID());
                         favorites_editor.commit();
                         recreate();
                     }

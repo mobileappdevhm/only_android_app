@@ -1,8 +1,10 @@
 package felix.peither.de.cie_for_android;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -35,7 +37,15 @@ public class LocationsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_locations);
 
 //        sv = (ScrollView) findViewById(R.id.locations_scroll_view)
-//        locations_toolbar = (Toolbar) findViewById(R.id.locations_toolbar);
+        locations_toolbar = (Toolbar) findViewById(R.id.locations_toolbar);
+        locations_toolbar.setTitleTextColor(Color.WHITE);
+        locations_toolbar.setNavigationIcon(R.drawable.ic_arrow_backward_white);
+        locations_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 //        setSupportActionBar(locations_toolbar);
 

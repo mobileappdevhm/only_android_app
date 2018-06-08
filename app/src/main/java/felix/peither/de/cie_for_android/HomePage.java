@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomePage extends AppCompatActivity {
 
@@ -58,7 +59,7 @@ public class HomePage extends AppCompatActivity {
     /**
      * all courses
      */
-    private ArrayList<Course> courseList;
+    private List<Course> courseList;
 
     /**
      * Map fragment
@@ -147,7 +148,7 @@ public class HomePage extends AppCompatActivity {
         for (final Course course: courseList) {
             final Toolbar course_bar = new Toolbar(this);
             course_bar.setTitle(course.getName());
-            if (favorites.contains(Integer.toString(course.getCourse_ID()))) {
+            if (favorites.contains(course.getCourse_ID())) {
                 course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
             } else {
                 course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
@@ -169,15 +170,15 @@ public class HomePage extends AppCompatActivity {
                 @Override
                 public void onClick(View v) { // save or delete the courses from
                                                             // favorites and change the icon accordingly
-                    if (favorites.contains(Integer.toString(course.getCourse_ID()))) {
+                    if (favorites.contains(course.getCourse_ID())) {
                         course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
-                        editFavorites.remove(Integer.toString(course.getCourse_ID()));
+                        editFavorites.remove(course.getCourse_ID());
                         editFavorites.commit();
                     } else {
                         course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
                         Gson gson = new Gson();
                         String json = gson.toJson(course);
-                        editFavorites.putString(Integer.toString(course.getCourse_ID()), json);
+                        editFavorites.putString(course.getCourse_ID(), json);
                         editFavorites.commit();
                     }
                 }
@@ -252,7 +253,7 @@ public class HomePage extends AppCompatActivity {
 
         // this loop adds all favorites to the layout
         for (final Course course: courseList) {
-            if (favorites.contains(Integer.toString(course.getCourse_ID()))) {
+            if (favorites.contains(course.getCourse_ID())) {
                 fav_counter++;
 
                 // The Course
@@ -270,7 +271,7 @@ public class HomePage extends AppCompatActivity {
                 fav_bar.setNavigationOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) { // delete the course from favorites if the delete button is pressed
-                        editFavorites.remove(Integer.toString(course.getCourse_ID()));
+                        editFavorites.remove(course.getCourse_ID());
                         editFavorites.commit();
                         make_favorite_page();
                     }
