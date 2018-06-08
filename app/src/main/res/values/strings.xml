@@ -4,4 +4,11 @@
     <string name="logo">LOGO</string>
     <string name="courses">courses</string>
     <string name="hmlogo">HMlogo</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="image_desc">HM Logo</string>
+    <string name="login">Login</string>
+    <string name="attempts">N\' of Incorrect attempts</string>
+    <string name="toolbar_title">Courses in English</string>
+    <string name="skip">SKIP</string>
 </resources>

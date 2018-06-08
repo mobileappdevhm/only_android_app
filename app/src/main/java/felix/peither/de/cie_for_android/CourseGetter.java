@@ -4,10 +4,6 @@ import java.util.ArrayList;
 
 public class CourseGetter {
 
-    CourseGetter() {
-
-    }
-
     public ArrayList<Course> getCourses() {
         ArrayList<Course> retList = new ArrayList<>();
 

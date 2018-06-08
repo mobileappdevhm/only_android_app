@@ -19,7 +19,8 @@
         <activity android:name=".SecondActivity" />
         <activity android:name=".CoursesActivity" />
         <activity android:name=".FavoritesActivity" />
-        <activity android:name=".LocationsActivity"></activity>
+        <activity android:name=".LocationsActivity" />
+        <activity android:name=".SkippedLoginActivity"></activity>
     </application>
 
 </manifest>
