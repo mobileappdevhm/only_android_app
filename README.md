@@ -1,4 +1,4 @@
-#CiE Android App - Team 3
+# CiE Android App - Team 3
 
 This app is coded in Java an therefore only works on android.
 
