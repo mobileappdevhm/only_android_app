@@ -35,4 +35,4 @@ script:
 - ./gradlew clean build
 
 after_success:
-- ./gradlew cobertura coveralls
+- ./gradlew jacocoRootReport coveralls
