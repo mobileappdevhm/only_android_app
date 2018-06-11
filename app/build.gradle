@@ -11,9 +11,6 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        debug {
-            testCoverageEnabled true
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -34,4 +31,3 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.7'
     implementation 'com.android.support:design:27.1.1'
 }
-
