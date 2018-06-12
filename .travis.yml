@@ -33,4 +33,6 @@ before_script:
 
 script:
 - ./gradlew clean build
-- ./gradlew connectedAndroidTest coveralls
+
+after_success:
+- ./gradlew jacocoRootReport coveralls
