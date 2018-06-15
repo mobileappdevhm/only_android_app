@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FavoritesActivity extends AppCompatActivity {
@@ -20,8 +21,8 @@ public class FavoritesActivity extends AppCompatActivity {
 
     private static final String SHARED_PREFS_NAME = "FAVORITES";
 
-    private CourseGetter courseGetter;
     private List<Course> course_list;
+    private List<Thread> allThreads = new ArrayList<>();
 
     ScrollView sv;
     Toolbar favorites_toolbar;
@@ -46,8 +47,20 @@ public class FavoritesActivity extends AppCompatActivity {
 
         sv = (ScrollView) findViewById(R.id.favorites_scroll_view);
 
-        courseGetter = new CourseGetter();
-        course_list = courseGetter.getCourses();
+        CourseGetter getter = new CourseGetter();
+
+        Thread request = new Thread(getter);
+        request.start();
+        allThreads.add(request);
+        for (int i = 0; i < allThreads.size(); i++) {
+            try {
+                allThreads.get(i).join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        course_list = getter.getCourses();
 
         LinearLayout.LayoutParams match_parent_ll = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         LinearLayout inner_layout = new LinearLayout(this);

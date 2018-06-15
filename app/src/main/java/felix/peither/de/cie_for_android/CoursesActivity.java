@@ -12,7 +12,17 @@ import android.widget.ScrollView;
 
 import com.google.gson.Gson;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class CoursesActivity extends AppCompatActivity {
 
@@ -28,10 +38,27 @@ public class CoursesActivity extends AppCompatActivity {
     SharedPreferences favorites;
     SharedPreferences.Editor favorites_editor;
 
+    List<Thread> allThreads = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
+
+        CourseGetter getter = new CourseGetter();
+
+        Thread request = new Thread(getter);
+        request.start();
+        allThreads.add(request);
+        for (int i = 0; i < allThreads.size(); i++) {
+            try {
+                allThreads.get(i).join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        course_list = getter.getCourses();
 
         sv = (ScrollView) findViewById(R.id.courses_scroll_view);
         courses_toolbar = (Toolbar) findViewById(R.id.courses_toolbar);
@@ -46,9 +73,9 @@ public class CoursesActivity extends AppCompatActivity {
 
         favorites = getSharedPreferences("FAVORITES", MODE_PRIVATE);
         favorites_editor = favorites.edit();
-
-        courseGetter = new CourseGetter();
-        course_list = courseGetter.getCourses();
+//
+//        courseGetter = new CourseGetter();
+//        course_list = courseGetter.doInBackground();
 
         LinearLayout.LayoutParams match_parent_ll = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         LinearLayout inner_layout = new LinearLayout(this);

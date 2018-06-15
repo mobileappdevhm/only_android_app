@@ -1,17 +1,27 @@
 package felix.peither.de.cie_for_android;
 
+import android.os.AsyncTask;
+
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class CourseGetter {
+public class CourseGetter implements Runnable {
 
-    public List<Course> getCourses() {
+    private List<Course> courses = new ArrayList<>();
+    private List<Thread> allThreads = new ArrayList<>();
+
+    @Override
+    public void run() {
         List<String> response = new ArrayList<>();
 
         try {
@@ -30,14 +40,16 @@ public class CourseGetter {
                 }
             }
             rd.close();
-        } catch (Exception ex) {
-
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        return make_courses(response);
-    }
-
-    private List<Course> make_courses(List<String> lines) {
         List<Course> courseList = new ArrayList<>();
 
         String tmpName = "bla";
@@ -47,7 +59,8 @@ public class CourseGetter {
         String tmpLocation = "bla";
         String tmpDescription = "bla";
 
-        for (String line: lines) {
+        for (String line: response) {
+//            System.out.println(line);
             if (line.contains("\"id\"")) {
                 tmpCourse_ID = line; //.substring(6, line.length() - 2);
             } else if (line.contains("\"lecturer\"")) {
@@ -58,18 +71,17 @@ public class CourseGetter {
                 tmpName = line;
             } else if (line.contains("\"shortName\"")) {
                 tmpShortName = line;
-                courseList.add(new Course("" + tmpName, "" + tmpShortName, "" + tmpProfessor, "" + tmpCourse_ID, "" + tmpLocation, "" + tmpDescription));
-            } else if (line.contains("\"location\"")) {
+                courseList.add(new Course(tmpName, tmpShortName, tmpProfessor, tmpCourse_ID, tmpLocation, tmpDescription));
+            } else if (line.contains("\"campus\"")) {
                 tmpLocation = line;
             }
-            courseList.add(new Course("bla","bla","bla","bla","bla","bla"));
+//            courseList.add(new Course("bla","bla","bla","bla","bla","bla"));
         }
 
-        for (int i = 0; i < 10; i++) {
-            courseList.add(new Course("Course" + Integer.toString(i), "C" + Integer.toString(i), "Prof." + Integer.toString(i), Integer.toString(i), "Lothstraße 64.", "This is a course"));
-        }
+        courses = courseList;
+    }
 
-
-        return courseList;
+    public List<Course> getCourses() {
+        return Collections.unmodifiableList(courses);
     }
 }

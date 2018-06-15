@@ -11,6 +11,13 @@
         android:id="@+id/log_in_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/Theme.AppCompat.Light"
         app:title="@string/toolbar_title" />
 
     <ScrollView
@@ -34,16 +41,6 @@
         app:layout_constraintTop_toBottomOf="@+id/log_in_toolbar"
         app:layout_constraintVertical_bias="0.186">
 
-        <!--<LinearLayout-->
-        <!--android:id="@+id/log_in_toolbar_layout"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="vertical">-->
-
-
-        <!--</LinearLayout>-->
-
-        <!--</ScrollView>-->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -64,12 +61,6 @@
                 android:layout_marginTop="8dp"
                 android:contentDescription="@string/image_desc"
                 app:srcCompat="@drawable/hm" />
-            <!--app:layout_constraintBottom_toTopOf="@+id/etName"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintHorizontal_bias="0.0"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent"-->
-            <!--app:layout_constraintVertical_bias="0.961"-->
 
 
             <EditText
@@ -87,12 +78,7 @@
                 android:hint="@string/username"
                 android:inputType="textPersonName"
                 android:textSize="16sp" />
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintHorizontal_bias="0.503"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent"-->
-            <!--app:layout_constraintVertical_bias="0.557" />-->
+
 
             <EditText
                 android:id="@+id/etPassword"
@@ -109,11 +95,7 @@
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:textSize="16sp" />
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/etName"-->
-            <!--app:layout_constraintVertical_bias="0.134" />-->
+
 
             <Button
                 android:id="@+id/btnLogin"
@@ -126,11 +108,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/login" />
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/etPassword"-->
-            <!--app:layout_constraintVertical_bias="0.242" />-->
 
             <TextView
                 android:id="@+id/tvInfo"
@@ -144,12 +121,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/attempts"
                 android:textSize="16sp" />
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintHorizontal_bias="0.502"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/btnLogin"-->
-            <!--app:layout_constraintVertical_bias="0.094" />-->
+
 
 
         </LinearLayout>

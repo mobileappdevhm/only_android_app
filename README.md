@@ -1,7 +1,24 @@
-# only_android_app
+# CiE Android App - Team 3
+
+Android Studio 3.1.2
+
 This app is coded in Java an therefore only works on android.
 
-## v1.0
-The first version of our nativ android app just shows the courses and lets the students pick favorites which are the shown in a different tab. 
+### Development
 
-Each course has a name, a location, a description, a location and an id. These information, exept the id, can be looked at in the courses tab. To show the description and location of each course one has to click on a course, then an info window pops up with the information on it.
+You can take a look at our progress during each sprint in here:
+
+**Sprint 1**
+
+* [Backlog Sprint 1](https://docs.google.com/document/d/1TDKr-gDvjoQkNaqJfvYGT2VE66yA4puGP4riXLWrfc0/edit?usp=sharing)
+
+* [Sprint 1](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_1_Page)
+
+**Sprint 2**
+
+ * [Backlog Sprint 2](https://docs.google.com/document/d/12B-3g0BlvA14SyQxIfW3M9O-VjtweqJgXd6Zrzy__z4/edit?usp=sharing)
+
+* [Sprint 2](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_2_Page)
+
+
+[![Build Status](https://travis-ci.org/freeCodeCamp/how-to-contribute-to-open-source.svg?branch=master)](https://travis-ci.org/mobileappdevhm/only_android_app) [![Coverage Status](https://coveralls.io/repos/github/mobileappdevhm/only_android_app/badge.svg)](https://coveralls.io/github/mobileappdevhm/only_android_app)
