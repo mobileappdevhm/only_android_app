@@ -11,4 +11,5 @@
     <string name="attempts">N\' of Incorrect attempts</string>
     <string name="toolbar_title">Courses in English</string>
     <string name="skip">SKIP</string>
+    <string name="title_activity_google_maps">Map</string>
 </resources>
