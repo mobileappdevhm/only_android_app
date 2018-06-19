@@ -1,8 +1,10 @@
 package felix.peither.de.cie_for_android;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -21,6 +23,7 @@ public class LocationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations);
 
+//        setSupportActionBar(locations_toolbar);
         /*
         For zooming in and out by double tapping or scrolling into the map
          */
