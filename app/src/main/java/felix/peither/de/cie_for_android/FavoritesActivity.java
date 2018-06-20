@@ -14,6 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import felix.peither.de.cie_for_android.CourseData.Course;
+
 public class FavoritesActivity extends AppCompatActivity {
 
     private SharedPreferences favorites;
@@ -88,7 +90,6 @@ public class FavoritesActivity extends AppCompatActivity {
                         info_dialog.create().show();
                     }
                 });
-                fav_bar.setSubtitle("by Prof. : " + course.getProfessor());
                 fav_bar.setNavigationIcon(R.drawable.ic_delete);
                 fav_bar.setNavigationOnClickListener(new View.OnClickListener() {
                     @Override

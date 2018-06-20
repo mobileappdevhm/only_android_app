@@ -1,7 +1,5 @@
 package felix.peither.de.cie_for_android;
 
-import android.os.AsyncTask;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,6 +12,12 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
+
+import felix.peither.de.cie_for_android.CourseData.Correlation;
+import felix.peither.de.cie_for_android.CourseData.Course;
+import felix.peither.de.cie_for_android.CourseData.Date;
+import felix.peither.de.cie_for_android.CourseData.Lecturer;
+import felix.peither.de.cie_for_android.CourseData.Room;
 
 public class CourseGetter implements Runnable {
 
@@ -52,30 +56,107 @@ public class CourseGetter implements Runnable {
 
         List<Course> courseList = new ArrayList<>();
 
-        String tmpName = "bla";
-        String tmpShortName = "bla";
-        String tmpProfessor = "bla";
-        String tmpCourse_ID = "bla";
-        String tmpLocation = "bla";
-        String tmpDescription = "bla";
+        String tmpCourseName = "";
+        String tmpCourseShortName = "";
+        String tmpCourseID = "";
+        String tmpCourseDescription = "";
+
+        List<Correlation> tmpCorrelations = new ArrayList<>();
+
+        String tmpCorrOrganizer = "";
+        String tmpCorrCurriculum = "";
+
+        List<Date> tmpDates = new ArrayList<>();
+
+        String tmpDateBegin = "";
+        String tmpDateEnd = "";
+        String tmpDateTitle = "";
+        boolean tmpDateCanceled = false;
+
+        List<Lecturer> tmpLecturers = new ArrayList<>();
+
+        String tmpLecTitle = "";
+        String tmpLecFirstName = "";
+        String tmpLecLastName = "";
+
+        List<Room> tmpRooms = new ArrayList<>();
+
+        String tmpRoomNumber = "";
+        String tmpRoomBuilding = "";
+        String tmpRoomCampus = "";
+
+        boolean inCorrelations = false;
+        boolean inDates = false;
+        boolean inRooms = false;
+        boolean inLecturers = false;
 
         for (String line: response) {
 //            System.out.println(line);
             if (line.contains("\"id\"")) {
-                tmpCourse_ID = line; //.substring(6, line.length() - 2);
-            } else if (line.contains("\"lecturer\"")) {
-                tmpProfessor = line;
+                tmpCourseID = line; //.substring(6, line.length() - 2);
             } else if (line.contains("\"description\"")) {
-                tmpDescription = line;
+                tmpCourseDescription = line;
             } else if (line.contains("\"name\"")) {
-                tmpName = line;
+                tmpCourseName = line;
             } else if (line.contains("\"shortName\"")) {
-                tmpShortName = line;
-                courseList.add(new Course(tmpName, tmpShortName, tmpProfessor, tmpCourse_ID, tmpLocation, tmpDescription));
-            } else if (line.contains("\"campus\"")) {
-                tmpLocation = line;
+                tmpCourseShortName = line;
+                courseList.add(new Course(tmpCourseName, tmpCourseShortName, tmpCourseID, tmpCourseDescription, tmpDates, tmpCorrelations));
+                // COURSE END ---------------------------------------------------------------------------------
+            } else if (line.contains("\"correlations\"")) {
+                // CORRELATIONS START -------------------------------------------------------------------------
+                inCorrelations = true;
+            } else if (line.contains("\"organiser\"")) {
+                tmpCorrOrganizer = line;
+            } else if (line.contains("\"curriculum\"")) {
+                tmpCorrCurriculum = line;
+            } else if (line.contains("\"actions\"") && inCorrelations && !inRooms && !inDates && !inLecturers) {
+                tmpCorrelations.add(new Correlation(tmpCorrOrganizer, tmpCorrCurriculum));
+                inCorrelations = false;
+                // CORRELATION END ----------------------------------------------------------------------------
+            } else if (line.contains("\"rooms\"")) {
+                // ROOM START -------------------------------------------------------------------------
+                inRooms = true;
+            } else if (inDates && inRooms && line.contains("\"number\"")) {
+                tmpRoomNumber = line;
+            } else if (inDates && inRooms && line.contains("\"building\"")) {
+                tmpRoomBuilding = line;
+            } else if (inDates && inRooms && line.contains("\"campus\"")) {
+                tmpRoomCampus = line;
+            } else if (inDates && inRooms && line.contains("\"actions\"") && !inCorrelations && !inLecturers) {
+                tmpRooms.add(new Room(tmpRoomNumber, tmpRoomBuilding, tmpRoomCampus));
+                inRooms = false;
+                // ROOM END ----------------------------------------------------------------------------
+            }else if (line.contains("\"correlations\"")) {
+                // LECTURERS START -------------------------------------------------------------------------
+                inLecturers = true;
+            } else if (inDates && inLecturers && line.contains("\"title\"")) {
+                tmpLecTitle = line;
+            } else if (inDates && inLecturers && line.contains("\"firstName\"")) {
+                tmpLecFirstName = line;
+            } else if (inDates && inLecturers && line.contains("\"lastName\"")) {
+                tmpLecLastName = line;
+            } else if (inDates && inLecturers && line.contains("\"actions\"") && !inCorrelations && !inRooms) {
+                tmpLecturers.add(new Lecturer(tmpLecTitle, tmpLecFirstName, tmpLecLastName));
+                inLecturers = false;
+                // LECTURERS END ----------------------------------------------------------------------------
+            }else if (line.contains("\"correlations\"")) {
+                // DATE START -------------------------------------------------------------------------
+                inDates = true;
+            } else if (inDates && line.contains("\"begin\"")) {
+                tmpDateBegin = line;
+            } else if (inDates && line.contains("\"end\"")) {
+                tmpDateEnd = line;
+            } else if (inDates && line.contains("\"title\"")) {
+                tmpDateTitle = line;
+            } else if (inDates && line.contains("\"canceled\"")) {
+                tmpDateCanceled = line.contains("true");
+            } else if (inDates && line.contains("\"actions\"") && !inCorrelations && !inRooms && !inLecturers) {
+                inDates = false;
+                tmpDates.add(new Date(tmpDateBegin, tmpDateEnd, tmpDateTitle, tmpDateCanceled, tmpRooms, tmpLecturers));
+                tmpLecturers.clear();
+                tmpRooms.clear();
+                // DATE END ----------------------------------------------------------------------------
             }
-//            courseList.add(new Course("bla","bla","bla","bla","bla","bla"));
         }
 
         courses = courseList;

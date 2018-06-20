@@ -6,23 +6,26 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.net.ssl.HttpsURLConnection;
+import felix.peither.de.cie_for_android.CourseData.Course;
+import felix.peither.de.cie_for_android.CourseData.ListViewAdapter;
 
 public class CoursesActivity extends AppCompatActivity {
 
@@ -60,7 +63,13 @@ public class CoursesActivity extends AppCompatActivity {
 
         course_list = getter.getCourses();
 
-        sv = (ScrollView) findViewById(R.id.courses_scroll_view);
+        ListAdapter adapter = new ListAdapter();
+        ListView listView = (ListView) findViewById(R.id.courses_list_view);
+        listView.setAdapter(adapter);
+
+
+
+//        sv = (ScrollView) findViewById(R.id.courses_scroll_view);
         courses_toolbar = (Toolbar) findViewById(R.id.courses_toolbar);
         courses_toolbar.setTitleTextColor(Color.WHITE);
         courses_toolbar.setNavigationIcon(R.drawable.ic_arrow_backward_white);
@@ -77,53 +86,94 @@ public class CoursesActivity extends AppCompatActivity {
 //        courseGetter = new CourseGetter();
 //        course_list = courseGetter.doInBackground();
 
-        LinearLayout.LayoutParams match_parent_ll = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        LinearLayout inner_layout = new LinearLayout(this);
-        inner_layout.setOrientation(LinearLayout.VERTICAL);
+//        LinearLayout.LayoutParams match_parent_ll = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+//        LinearLayout inner_layout = new LinearLayout(this);
+//        inner_layout.setOrientation(LinearLayout.VERTICAL);
+//
+//        for (final Course course: course_list) {
+//            final Toolbar course_bar = new Toolbar(this);
+//            course_bar.setTitle(course.getName());
+//            if (favorites.contains(course.getCourse_ID())) {
+//                course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
+//            } else {
+//                course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
+//            }
+//            course_bar.setPadding(5,5,5,5);
+//            course_bar.setClickable(true);
+//            final AlertDialog.Builder info_dialog = new AlertDialog.Builder(this)
+//                    .setTitle("Course Description")
+//                    .setMessage("This is a description of a course :)")
+//                    .setNeutralButton("Close", null);
+//            course_bar.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    info_dialog.create().show();
+//                }
+//            });
+//            course_bar.setNavigationOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) { // save or delete the courses from
+//                    // favorites and change the icon accordingly
+//                    if (favorites.contains(course.getCourse_ID())) {
+//                        course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
+//                        favorites_editor.remove(course.getCourse_ID());
+//                        favorites_editor.commit();
+//                    } else {
+//                        course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
+//                        Gson gson = new Gson();
+//                        String json = gson.toJson(course);
+//                        favorites_editor.putString(course.getCourse_ID(), json);
+//                        favorites_editor.commit();
+//                    }
+//                }
+//            });
+//
+//            inner_layout.addView(course_bar, match_parent_ll);
+//        }
+//
+//        // add the layout with all courses inside into the scroll view
+//        sv.addView(inner_layout);
+    }
 
-        for (final Course course: course_list) {
-            final Toolbar course_bar = new Toolbar(this);
-            course_bar.setTitle(course.getName());
-            if (favorites.contains(course.getCourse_ID())) {
-                course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
-            } else {
-                course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
-            }
-            course_bar.setPadding(5,5,5,5);
-            course_bar.setClickable(true);
-            final AlertDialog.Builder info_dialog = new AlertDialog.Builder(this)
-                    .setTitle("Course Description")
-                    .setMessage("This is a description of a course :)")
-                    .setNeutralButton("Close", null);
-            course_bar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    info_dialog.create().show();
-                }
-            });
-            course_bar.setSubtitle("by Prof. : " + course.getProfessor());
-            course_bar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) { // save or delete the courses from
-                    // favorites and change the icon accordingly
-                    if (favorites.contains(course.getCourse_ID())) {
-                        course_bar.setNavigationIcon(R.drawable.ic_favorite_red);
-                        favorites_editor.remove(course.getCourse_ID());
-                        favorites_editor.commit();
-                    } else {
-                        course_bar.setNavigationIcon(R.drawable.ic_favorite_full_red);
-                        Gson gson = new Gson();
-                        String json = gson.toJson(course);
-                        favorites_editor.putString(course.getCourse_ID(), json);
-                        favorites_editor.commit();
-                    }
-                }
-            });
+    class ListAdapter extends BaseAdapter {
 
-            inner_layout.addView(course_bar, match_parent_ll);
+        @Override
+        public int getCount() {
+            return course_list.size();
         }
 
-        // add the layout with all courses inside into the scroll view
-        sv.addView(inner_layout);
+        @Override
+        public Object getItem(int position) {
+            return course_list.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = getLayoutInflater().inflate(R.layout.courses_layout, null);
+
+            Course course = course_list.get(position);
+
+            ImageView fav_icon = (ImageView) convertView.findViewById(R.id.fav_icon);
+            TextView name = (TextView) convertView.findViewById(R.id.text_name);
+            TextView shortName = (TextView) convertView.findViewById(R.id.text_descr);
+
+            if (favorites.contains(course.getCourse_ID())) {
+                fav_icon.setImageResource(R.drawable.ic_favorite_full_red);
+            } else {
+                fav_icon.setImageResource(R.drawable.ic_favorite_red);
+            }
+
+            name.setText(course.getName());
+            name.setTextSize(15);
+            shortName.setText(course.getShortName());
+            shortName.setTextSize(10);
+
+            return convertView;
+        }
     }
 }
