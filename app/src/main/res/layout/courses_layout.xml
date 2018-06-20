@@ -13,6 +13,7 @@
         android:layout_height="45dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_margin="16dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
@@ -20,18 +21,18 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/text_name"
-        android:layout_width="265dp"
+        android:id="@+id/text_descr"
+        android:layout_width="293dp"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fav_icon"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/imageView"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/text_descr"
-        android:layout_width="265dp"
+        android:id="@+id/text_name"
+        android:layout_width="293dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView"
         android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/fav_icon"
         android:text="TextView" />
 </RelativeLayout>

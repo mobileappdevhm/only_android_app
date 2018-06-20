@@ -1,31 +1,28 @@
 package felix.peither.de.cie_for_android;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import felix.peither.de.cie_for_android.CourseData.Course;
-import felix.peither.de.cie_for_android.CourseData.ListViewAdapter;
 
 public class CoursesActivity extends AppCompatActivity {
 
@@ -50,6 +47,8 @@ public class CoursesActivity extends AppCompatActivity {
 
         CourseGetter getter = new CourseGetter();
 
+        final Context ctx = this;
+
         Thread request = new Thread(getter);
         request.start();
         allThreads.add(request);
@@ -66,6 +65,17 @@ public class CoursesActivity extends AppCompatActivity {
         ListAdapter adapter = new ListAdapter();
         ListView listView = (ListView) findViewById(R.id.courses_list_view);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final AlertDialog.Builder info_dialog = new AlertDialog.Builder(ctx)
+                        .setTitle(getValueOfJSONString(course_list.get(position).getShortName()))
+                        .setMessage(getValueOfJSONString(course_list.get(position).getDescription()))
+                        .setNeutralButton("Close", null);
+
+                info_dialog.create().show();
+            }
+        });
 
 
 
@@ -135,6 +145,13 @@ public class CoursesActivity extends AppCompatActivity {
 //        sv.addView(inner_layout);
     }
 
+    private String getValueOfJSONString(String JSONString) {
+        String value;
+        String[] typeAndValue = JSONString.split(":");
+        value = typeAndValue[1].substring(1,typeAndValue[1].length()-1);
+        return value;
+    }
+
     class ListAdapter extends BaseAdapter {
 
         @Override
@@ -156,9 +173,9 @@ public class CoursesActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.courses_layout, null);
 
-            Course course = course_list.get(position);
+            final Course course = course_list.get(position);
 
-            ImageView fav_icon = (ImageView) convertView.findViewById(R.id.fav_icon);
+            final ImageView fav_icon = (ImageView) convertView.findViewById(R.id.fav_icon);
             TextView name = (TextView) convertView.findViewById(R.id.text_name);
             TextView shortName = (TextView) convertView.findViewById(R.id.text_descr);
 
@@ -168,9 +185,27 @@ public class CoursesActivity extends AppCompatActivity {
                 fav_icon.setImageResource(R.drawable.ic_favorite_red);
             }
 
-            name.setText(course.getName());
-            name.setTextSize(15);
-            shortName.setText(course.getShortName());
+            fav_icon.setClickable(true);
+            fav_icon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (favorites.contains(course.getCourse_ID())) {
+                        fav_icon.setImageResource(R.drawable.ic_favorite_red);
+                        favorites_editor.remove(course.getCourse_ID());
+                        favorites_editor.commit();
+                    } else {
+                        fav_icon.setImageResource(R.drawable.ic_favorite_full_red);
+                        Gson gson = new Gson();
+                        String json = gson.toJson(course);
+                        favorites_editor.putString(course.getCourse_ID(), json);
+                        favorites_editor.commit();
+                    }
+                }
+            });
+
+            name.setText(getValueOfJSONString(course.getName()));
+            name.setTextSize(14);
+            shortName.setText(getValueOfJSONString(course.getShortName()));
             shortName.setTextSize(10);
 
             return convertView;
