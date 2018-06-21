@@ -9,6 +9,7 @@ public class Course {
     private final String shortName;
     private final String course_ID;
     private final String description;
+    private final String day;
 
     List<Date> dates;
     List<Correlation> correlations;
@@ -18,10 +19,14 @@ public class Course {
         this.shortName = shortName;
         this.course_ID = ID;
         this.description = description;
+        day = "Wednesday";
 
         this.dates = dates;
         this.correlations = correlations;
     }
+
+
+    public String getDay() { return day; }
 
     public String getDescription() { return description; }
 
