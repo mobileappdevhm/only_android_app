@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -23,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import felix.peither.de.cie_for_android.CourseData.Course;
+import felix.peither.de.cie_for_android.NetworkRunnables.CourseGetter;
 
 public class CoursesActivity extends AppCompatActivity {
 
