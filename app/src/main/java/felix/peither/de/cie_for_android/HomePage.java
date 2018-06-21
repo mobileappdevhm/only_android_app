@@ -2,13 +2,10 @@ package felix.peither.de.cie_for_android;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v4.app.Fragment;
-import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,14 +13,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import felix.peither.de.cie_for_android.CourseData.Course;
+import felix.peither.de.cie_for_android.NetworkRunnables.CourseGetter;
 
 public class HomePage extends AppCompatActivity {
 
@@ -165,7 +163,6 @@ public class HomePage extends AppCompatActivity {
                     info_dialog.create().show();
                 }
             });
-            course_bar.setSubtitle("by Prof. : " + course.getProfessor());
             course_bar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) { // save or delete the courses from
@@ -266,7 +263,6 @@ public class HomePage extends AppCompatActivity {
                         info_dialog.create().show();
                     }
                 });
-                fav_bar.setSubtitle("by Prof. : " + course.getProfessor());
                 fav_bar.setNavigationIcon(R.drawable.ic_delete);
                 fav_bar.setNavigationOnClickListener(new View.OnClickListener() {
                     @Override

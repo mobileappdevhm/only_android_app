@@ -5,7 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context="felix.peither.de.cie_for_android.SecondActivity">
+    tools:context="felix.peither.de.cie_for_android.DepartmentActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/courses_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Courses" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -20,18 +31,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courses_toolbar"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/hm" />
 
     <android.support.v7.widget.GridLayout
         android:id="@+id/mainGrid"
         android:layout_width="395dp"
-        android:layout_height="484dp"
+        android:layout_height="406dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:padding="14dp"
         app:alignmentMode="alignMargins"
         app:columnCount="2"
@@ -40,14 +50,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.531"
         app:rowCount="3">
 
         <!-- row 1 -->
         <!-- Column 1 -->
+        <!-- Department 4 -->
         <android.support.v7.widget.CardView
-            android:id="@+id/cardCourses"
+            android:id="@+id/department4"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="16dp"
@@ -69,27 +78,20 @@
                 android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="@string/courses"
-                    android:src="@drawable/courses" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Courses"
+                    android:text="Department 4 ELECTRICAL ENGINEERING AND INFORMATION TECHNOLOGY"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
         <!-- Column 2 -->
         <android.support.v7.widget.CardView
-            android:id="@+id/cardFavorites"
+            android:id="@+id/department6"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="16dp"
@@ -111,105 +113,13 @@
                 android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="@string/pages"
-                    android:src="@drawable/favorites" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Favorites"
+                    android:text="Department 6 APPLIED SCIENCES AND MECHATRONICS"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-
-        <!-- row 2 -->
-        <!-- Column 1 -->
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardSchedule"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
-            tools:style="@style/CardView">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="@string/pages"
-                    android:src="@drawable/schedule" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Schedule"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <!-- Column 2 -->
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
-            tools:style="@style/CardView">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="@string/pages"
-                    android:src="@drawable/profile" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Profile"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -217,6 +127,7 @@
         <!-- row 3 -->
         <!-- Column 1 -->
         <android.support.v7.widget.CardView
+            android:id="@+id/department7"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="16dp"
@@ -238,27 +149,20 @@
                 android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="@string/pages"
-                    android:src="@drawable/contacts" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Contacts"
+                    android:text="Department 7 COMPUTER SCIENCE AND MATHEMATICS"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
         <!-- Column 2 -->
         <android.support.v7.widget.CardView
-            android:id="@+id/cardLocations"
+            android:id="@+id/department9"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="16dp"
@@ -280,20 +184,13 @@
                 android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="@string/pages"
-                    android:src="@drawable/locations" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Locations"
+                    android:text="Department 9 ENGINEERING AND MANAGEMENT"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </android.support.v7.widget.CardView>

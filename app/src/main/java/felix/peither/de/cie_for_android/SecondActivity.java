@@ -16,6 +16,7 @@ public class SecondActivity extends AppCompatActivity {
     CardView card_courses;
     CardView card_favorites;
     CardView card_locations;
+    CardView card_schedule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +26,12 @@ public class SecondActivity extends AppCompatActivity {
         card_courses = (CardView) findViewById(R.id.cardCourses);
         card_favorites = (CardView) findViewById(R.id.cardFavorites);
         card_locations = (CardView) findViewById(R.id.cardLocations);
+        card_schedule = (CardView) findViewById(R.id.cardSchedule);
 
         card_courses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent courses_intent = new Intent(SecondActivity.this, CoursesActivity.class);
+                Intent courses_intent = new Intent(SecondActivity.this, DepartmentActivity.class);
                 startActivity(courses_intent);
             }
         });
@@ -50,6 +52,13 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        card_schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent locations_intent = new Intent(SecondActivity.this, ScheduleActivity.class);
+                startActivity(locations_intent);
+            }
+        });
     }
 
 }
