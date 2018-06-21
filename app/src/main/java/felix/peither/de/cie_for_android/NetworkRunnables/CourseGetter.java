@@ -1,4 +1,4 @@
-package felix.peither.de.cie_for_android;
+package felix.peither.de.cie_for_android.NetworkRunnables;
 
 import java.io.BufferedReader;
 import java.io.IOException;

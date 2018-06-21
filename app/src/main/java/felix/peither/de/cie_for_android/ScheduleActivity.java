@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import felix.peither.de.cie_for_android.CourseData.Course;
+import felix.peither.de.cie_for_android.NetworkRunnables.CourseGetter;
 
 public class ScheduleActivity extends AppCompatActivity {
 
