@@ -34,7 +34,7 @@ public class SecondActivity extends AppCompatActivity {
         card_courses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent courses_intent = new Intent(SecondActivity.this, CoursesActivity.class);
+                Intent courses_intent = new Intent(SecondActivity.this, DepartmentActivity.class);
                 startActivity(courses_intent);
             }
         });
