@@ -3,12 +3,14 @@ package felix.peither.de.cie_for_android;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -64,6 +69,13 @@ public class HomePage extends AppCompatActivity {
      */
     private Map map = new Map();
 
+    /**
+     *
+     * Firebase Analytics
+     */
+    private FirebaseAnalytics mFirebaseAnalytics;
+    @NonNull MenuItem item;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +92,9 @@ public class HomePage extends AppCompatActivity {
 
         nav_bar = (BottomNavigationView) findViewById(R.id.nav_bar);
         nav_bar.setBackgroundColor(Color.LTGRAY);
+
+        // Firebase Analytics
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         // tell the buttons on the navigation bar what to du when they are clicked
         nav_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -105,7 +120,6 @@ public class HomePage extends AppCompatActivity {
         make_home_page();
         nav_bar.setSelectedItemId(R.id.home_button);
     }
-
 
     /**
      * creating the menu in the toolbars of each page.

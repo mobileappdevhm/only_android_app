@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "900807217374",
+    "firebase_url": "https://cie-android-d9ad6.firebaseio.com",
+    "project_id": "cie-android-d9ad6",
+    "storage_bucket": "cie-android-d9ad6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900807217374:android:6e9e65fcf58cbb37",
+        "android_client_info": {
+          "package_name": "felix.peither.de.cie_for_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900807217374-njfd54je128s12jgj7cfu74gfetffnjq.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "900807217374-njfd54je128s12jgj7cfu74gfetffnjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeWy5ZfxMB4hMIrk9GkAA8juTh04yf4vY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

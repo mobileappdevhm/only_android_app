@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.os.Bundle;
 import android.widget.GridLayout;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -19,6 +20,10 @@ public class SecondActivity extends AppCompatActivity {
     CardView card_schedule;
     CardView card_contacts;
 
+    /**
+     * Firebase Analytics
+     */
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,9 @@ public class SecondActivity extends AppCompatActivity {
         card_locations = (CardView) findViewById(R.id.cardLocations);
         card_schedule = (CardView) findViewById(R.id.cardSchedule);
         card_contacts = (CardView) findViewById(R.id.cardContacts);
+
+        // Firebase Analytics
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         card_courses.setOnClickListener(new View.OnClickListener() {
             @Override
