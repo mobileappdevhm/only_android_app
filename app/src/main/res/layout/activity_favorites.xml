@@ -26,21 +26,21 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:contentDescription="@string/hmlogo"
-        app:layout_constraintBottom_toTopOf="@+id/favorites_scroll_view"
+        app:layout_constraintBottom_toTopOf="@id/favorites_list_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favorites_toolbar"
         app:srcCompat="@drawable/hm" />
 
-    <ScrollView
-        android:id="@+id/favorites_scroll_view"
+    <ListView
+        android:id="@+id/favorites_list_view"
         android:layout_width="380dp"
-        android:layout_height="367dp"
+        android:layout_height="361dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
-    </ScrollView>
+    </ListView>
 
 </android.support.constraint.ConstraintLayout>
