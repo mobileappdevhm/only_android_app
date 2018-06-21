@@ -22,6 +22,7 @@
         <activity android:name=".CoursesActivity" />
         <activity android:name=".FavoritesActivity" />
         <activity android:name=".LocationsActivity" />
+        <activity android:name=".ScheduleActivity" />
         <activity android:name=".SkippedLoginActivity"></activity>
     </application>
 

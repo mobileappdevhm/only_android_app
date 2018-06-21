@@ -99,7 +99,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
     }
 
-    protected void coursesRefresh(String day, List<Course> course_list, LinearLayout.LayoutParams match_parent_ll,  LinearLayout inner_layout){
+    private void coursesRefresh(String day, List<Course> course_list, LinearLayout.LayoutParams match_parent_ll,  LinearLayout inner_layout){
         boolean check = false;
         sv.removeAllViews();
         inner_layout.removeAllViews();

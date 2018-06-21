@@ -24,6 +24,14 @@ public class CourseGetter implements Runnable {
     private List<Course> courses = new ArrayList<>();
     private List<Thread> allThreads = new ArrayList<>();
 
+    private String getValueOfJSONString(String JSONString) {
+        String value = "not a type value pair";
+        String[] typeAndValue = JSONString.split(":");
+        if (typeAndValue.length > 1)
+            value = typeAndValue[1].substring(1,typeAndValue[1].length()-1);
+        return value;
+    }
+
     @Override
     public void run() {
         List<String> response = new ArrayList<>();
@@ -91,24 +99,25 @@ public class CourseGetter implements Runnable {
         boolean inLecturers = false;
 
         for (String line: response) {
+            String formatedLine = getValueOfJSONString(line);
 //            System.out.println(line);
             if (line.contains("\"id\"")) {
-                tmpCourseID = line; //.substring(6, line.length() - 2);
+                tmpCourseID = formatedLine; //.substring(6, line.length() - 2);
             } else if (line.contains("\"description\"")) {
-                tmpCourseDescription = line;
+                tmpCourseDescription = formatedLine;
             } else if (line.contains("\"name\"")) {
-                tmpCourseName = line;
+                tmpCourseName = formatedLine;
             } else if (line.contains("\"shortName\"")) {
-                tmpCourseShortName = line;
+                tmpCourseShortName = formatedLine;
                 courseList.add(new Course(tmpCourseName, tmpCourseShortName, tmpCourseID, tmpCourseDescription, tmpDates, tmpCorrelations));
                 // COURSE END ---------------------------------------------------------------------------------
             } else if (line.contains("\"correlations\"")) {
                 // CORRELATIONS START -------------------------------------------------------------------------
                 inCorrelations = true;
             } else if (line.contains("\"organiser\"")) {
-                tmpCorrOrganizer = line;
+                tmpCorrOrganizer = formatedLine;
             } else if (line.contains("\"curriculum\"")) {
-                tmpCorrCurriculum = line;
+                tmpCorrCurriculum = formatedLine;
             } else if (line.contains("\"actions\"") && inCorrelations && !inRooms && !inDates && !inLecturers) {
                 tmpCorrelations.add(new Correlation(tmpCorrOrganizer, tmpCorrCurriculum));
                 inCorrelations = false;
@@ -117,39 +126,39 @@ public class CourseGetter implements Runnable {
                 // ROOM START -------------------------------------------------------------------------
                 inRooms = true;
             } else if (inDates && inRooms && line.contains("\"number\"")) {
-                tmpRoomNumber = line;
+                tmpRoomNumber = formatedLine;
             } else if (inDates && inRooms && line.contains("\"building\"")) {
-                tmpRoomBuilding = line;
+                tmpRoomBuilding = formatedLine;
             } else if (inDates && inRooms && line.contains("\"campus\"")) {
-                tmpRoomCampus = line;
+                tmpRoomCampus = formatedLine;
             } else if (inDates && inRooms && line.contains("\"actions\"") && !inCorrelations && !inLecturers) {
                 tmpRooms.add(new Room(tmpRoomNumber, tmpRoomBuilding, tmpRoomCampus));
                 inRooms = false;
                 // ROOM END ----------------------------------------------------------------------------
-            }else if (line.contains("\"correlations\"")) {
+            } else if (line.contains("\"correlations\"")) {
                 // LECTURERS START -------------------------------------------------------------------------
                 inLecturers = true;
             } else if (inDates && inLecturers && line.contains("\"title\"")) {
-                tmpLecTitle = line;
+                tmpLecTitle = formatedLine;
             } else if (inDates && inLecturers && line.contains("\"firstName\"")) {
-                tmpLecFirstName = line;
+                tmpLecFirstName = formatedLine;
             } else if (inDates && inLecturers && line.contains("\"lastName\"")) {
-                tmpLecLastName = line;
+                tmpLecLastName = formatedLine;
             } else if (inDates && inLecturers && line.contains("\"actions\"") && !inCorrelations && !inRooms) {
                 tmpLecturers.add(new Lecturer(tmpLecTitle, tmpLecFirstName, tmpLecLastName));
                 inLecturers = false;
                 // LECTURERS END ----------------------------------------------------------------------------
-            }else if (line.contains("\"correlations\"")) {
+            } else if (line.contains("\"correlations\"")) {
                 // DATE START -------------------------------------------------------------------------
                 inDates = true;
             } else if (inDates && line.contains("\"begin\"")) {
-                tmpDateBegin = line;
+                tmpDateBegin = formatedLine;
             } else if (inDates && line.contains("\"end\"")) {
-                tmpDateEnd = line;
+                tmpDateEnd = formatedLine;
             } else if (inDates && line.contains("\"title\"")) {
-                tmpDateTitle = line;
+                tmpDateTitle = formatedLine;
             } else if (inDates && line.contains("\"canceled\"")) {
-                tmpDateCanceled = line.contains("true");
+                tmpDateCanceled = formatedLine.contains("true");
             } else if (inDates && line.contains("\"actions\"") && !inCorrelations && !inRooms && !inLecturers) {
                 inDates = false;
                 tmpDates.add(new Date(tmpDateBegin, tmpDateEnd, tmpDateTitle, tmpDateCanceled, tmpRooms, tmpLecturers));

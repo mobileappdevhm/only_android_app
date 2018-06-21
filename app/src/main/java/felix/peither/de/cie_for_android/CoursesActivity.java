@@ -69,8 +69,8 @@ public class CoursesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final AlertDialog.Builder info_dialog = new AlertDialog.Builder(ctx)
-                        .setTitle(getValueOfJSONString(course_list.get(position).getShortName()))
-                        .setMessage(getValueOfJSONString(course_list.get(position).getDescription()))
+                        .setTitle(course_list.get(position).getShortName())
+                        .setMessage(course_list.get(position).getDescription())
                         .setNeutralButton("Close", null);
 
                 info_dialog.create().show();
@@ -145,13 +145,6 @@ public class CoursesActivity extends AppCompatActivity {
 //        sv.addView(inner_layout);
     }
 
-    private String getValueOfJSONString(String JSONString) {
-        String value;
-        String[] typeAndValue = JSONString.split(":");
-        value = typeAndValue[1].substring(1,typeAndValue[1].length()-1);
-        return value;
-    }
-
     class ListAdapter extends BaseAdapter {
 
         @Override
@@ -203,9 +196,9 @@ public class CoursesActivity extends AppCompatActivity {
                 }
             });
 
-            name.setText(getValueOfJSONString(course.getName()));
+            name.setText(course.getName());
             name.setTextSize(14);
-            shortName.setText(getValueOfJSONString(course.getShortName()));
+            shortName.setText(course.getShortName());
             shortName.setTextSize(10);
 
             return convertView;

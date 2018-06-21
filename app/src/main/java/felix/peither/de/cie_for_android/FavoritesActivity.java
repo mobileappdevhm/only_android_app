@@ -94,8 +94,8 @@ public class FavoritesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final AlertDialog.Builder info_dialog = new AlertDialog.Builder(ctx)
-                        .setTitle(getValueOfJSONString(favorite_courses.get(position).getShortName()))
-                        .setMessage(getValueOfJSONString(favorite_courses.get(position).getDescription()))
+                        .setTitle(favorite_courses.get(position).getShortName())
+                        .setMessage(favorite_courses.get(position).getDescription())
                         .setNeutralButton("Close", null);
 
                 info_dialog.create().show();
@@ -155,13 +155,6 @@ public class FavoritesActivity extends AppCompatActivity {
 //        sv.addView(inner_layout);
     }
 
-    private String getValueOfJSONString(String JSONString) {
-        String value;
-        String[] typeAndValue = JSONString.split(":");
-        value = typeAndValue[1].substring(1,typeAndValue[1].length()-1);
-        return value;
-    }
-
     class ListAdapter extends BaseAdapter {
 
         @Override
@@ -204,9 +197,9 @@ public class FavoritesActivity extends AppCompatActivity {
                     }
                 });
 
-                name.setText(getValueOfJSONString(course.getName()));
+                name.setText(course.getName());
                 name.setTextSize(14);
-                shortName.setText(getValueOfJSONString(course.getShortName()));
+                shortName.setText(course.getShortName());
                 shortName.setTextSize(10);
             } else {
                 fav_icon.setImageResource(R.drawable.ic_nothind_selected);
