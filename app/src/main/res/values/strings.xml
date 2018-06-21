@@ -11,4 +11,16 @@
     <string name="attempts">N\' of Incorrect attempts</string>
     <string name="toolbar_title">Courses in English</string>
     <string name="skip">SKIP</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="student">Student</string>
+    <string name="mail">student@email.com</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
 </resources>

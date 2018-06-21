@@ -226,7 +226,8 @@
             app:cardElevation="8dp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
-            tools:style="@style/CardView">
+            tools:style="@style/CardView"
+            android:id="@+id/cardContacts">
 
             <LinearLayout
                 android:layout_width="wrap_content"

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <item android:id="@+id/nav_courses"
+        android:title="My Courses"
+        android:icon="@drawable/ic_courses_24dp"/>
+
+    <item android:id="@+id/nav_favorites"
+        android:title="My Favorites"
+        android:icon="@drawable/ic_favorite_black_24dp"/>
+
+    <item android:id="@+id/nav_schedule"
+        android:title="My Schedule"
+        android:icon="@drawable/ic_access_time_black_24dp"/>
+
+    <item android:id="@+id/nav_locations"
+        android:title="My Locations"
+        android:icon="@drawable/ic_explore_black_24dp"/>
+
+</menu>
