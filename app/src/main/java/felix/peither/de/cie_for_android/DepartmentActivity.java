@@ -24,10 +24,13 @@ public class DepartmentActivity extends AppCompatActivity {
         department_7 = (CardView) findViewById(R.id.department7);
         department_9 = (CardView) findViewById(R.id.department9);
 
+
+    /* This code is for our other departments, if we get the courses from the API
+
         department_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent department4_intent = new Intent(DepartmentActivity.this, OtherDepartmentsActivity.class);
+                Intent department4_intent = new Intent(DepartmentActivity.this, DepartmentActivity.class);
                 startActivity(department4_intent);
             }
         });
@@ -35,7 +38,7 @@ public class DepartmentActivity extends AppCompatActivity {
         department_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent department6_intent = new Intent(DepartmentActivity.this, OtherDepartmentsActivity.class);
+                Intent department6_intent = new Intent(DepartmentActivity.this, DepartmentActivity.class);
                 startActivity(department6_intent);
             }
         });
@@ -43,10 +46,12 @@ public class DepartmentActivity extends AppCompatActivity {
         department_7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent department7_intent = new Intent(DepartmentActivity.this, OtherDepartmentsActivity.class);
+                Intent department7_intent = new Intent(DepartmentActivity.this, DepartmentActivity.class);
                 startActivity(department7_intent);
             }
         });
+
+        */
 
         department_9.setOnClickListener(new View.OnClickListener() {
             @Override

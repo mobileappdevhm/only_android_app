@@ -81,7 +81,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Department 4 ELECTRICAL ENGINEERING AND INFORMATION TECHNOLOGY"
+                    android:text="Department 4
+                                  ELECTRICAL ENGINEERING AND INFORMATION TECHNOLOGY"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
@@ -116,7 +117,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Department 6 APPLIED SCIENCES AND MECHATRONICS"
+                    android:text="Department 6
+                                  APPLIED SCIENCES AND MECHATRONICS"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
@@ -152,7 +154,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Department 7 COMPUTER SCIENCE AND MATHEMATICS"
+                    android:text="Department 7
+                                  COMPUTER SCIENCE AND MATHEMATICS"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
@@ -187,7 +190,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Department 9 ENGINEERING AND MANAGEMENT"
+                    android:text="Department 9
+                                  ENGINEERING AND MANAGEMENT"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
