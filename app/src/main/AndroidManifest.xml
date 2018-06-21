@@ -24,7 +24,8 @@
         <activity android:name=".LocationsActivity" />
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".SkippedLoginActivity" />
-        <activity android:name=".DepartmentActivity"></activity>
+        <activity android:name=".DepartmentActivity" />
+        <activity android:name=".OtherDepartments"></activity>
     </application>
 
 </manifest>

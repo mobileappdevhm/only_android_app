@@ -27,32 +27,32 @@ public class DepartmentActivity extends AppCompatActivity {
         department_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent courses_intent = new Intent(DepartmentActivity.this, DepartmentActivity.class);
-                startActivity(courses_intent);
+                Intent department4_intent = new Intent(DepartmentActivity.this, OtherDepartmentsActivity.class);
+                startActivity(department4_intent);
             }
         });
 
         department_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent favorites_intent = new Intent(DepartmentActivity.this, DepartmentActivity.class);
-                startActivity(favorites_intent);
+                Intent department6_intent = new Intent(DepartmentActivity.this, OtherDepartmentsActivity.class);
+                startActivity(department6_intent);
             }
         });
 
         department_7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent locations_intent = new Intent(DepartmentActivity.this, DepartmentActivity.class);
-                startActivity(locations_intent);
+                Intent department7_intent = new Intent(DepartmentActivity.this, OtherDepartmentsActivity.class);
+                startActivity(department7_intent);
             }
         });
 
         department_9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent locations_intent = new Intent(DepartmentActivity.this, CoursesActivity.class);
-                startActivity(locations_intent);
+                Intent department9_intent = new Intent(DepartmentActivity.this, CoursesActivity.class);
+                startActivity(department9_intent);
             }
         });
     }
