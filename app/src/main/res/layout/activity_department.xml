@@ -8,7 +8,7 @@
     tools:context="felix.peither.de.cie_for_android.DepartmentActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/courses_toolbar"
+        android:id="@+id/departments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="4dp"
@@ -20,7 +20,7 @@
         app:title="Departments" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/departmentsImageView"
         android:layout_width="369dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courses_toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/departments"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/hm" />
 
@@ -53,8 +53,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:rowCount="3">
 
-        <!-- row 1 -->
-        <!-- Column 1 -->
         <!-- Department 4 -->
         <android.support.v7.widget.CardView
             android:id="@+id/department4"
@@ -92,7 +90,7 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <!-- Column 2 -->
+        <!-- Department 6 -->
         <android.support.v7.widget.CardView
             android:id="@+id/department6"
             android:layout_width="0dp"
@@ -129,8 +127,7 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <!-- row 3 -->
-        <!-- Column 1 -->
+        <!-- Department 7 -->
         <android.support.v7.widget.CardView
             android:id="@+id/department7"
             android:layout_width="0dp"
@@ -167,7 +164,7 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <!-- Column 2 -->
+        <!-- Department 9 -->
         <android.support.v7.widget.CardView
             android:id="@+id/department9"
             android:layout_width="0dp"

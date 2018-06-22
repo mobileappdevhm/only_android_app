@@ -9,6 +9,9 @@ import android.widget.GridLayout;
 
 public class DepartmentActivity extends NavigationDrawer {
 
+    /*
+    Start values
+     */
     GridLayout mainGrid;
     CardView department_4;
     CardView department_6;
@@ -24,35 +27,9 @@ public class DepartmentActivity extends NavigationDrawer {
         department_7 = (CardView) findViewById(R.id.department7);
         department_9 = (CardView) findViewById(R.id.department9);
 
-
-    /* This code is for our other departments, if we get the courses from the API
-
-        department_4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent department4_intent = new Intent(DepartmentActivity.this, DepartmentActivity.class);
-                startActivity(department4_intent);
-            }
-        });
-
-        department_6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent department6_intent = new Intent(DepartmentActivity.this, DepartmentActivity.class);
-                startActivity(department6_intent);
-            }
-        });
-
-        department_7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent department7_intent = new Intent(DepartmentActivity.this, DepartmentActivity.class);
-                startActivity(department7_intent);
-            }
-        });
-
-        */
-
+        /*
+        Only department which delivers courses at the moment 20.06.18
+         */
         department_9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
