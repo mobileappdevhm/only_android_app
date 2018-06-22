@@ -6,7 +6,7 @@ More and more MUAS students wanting to do an exchange year and visiting the Univ
 
 ### Login
 
-<img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Login.png" width="300">
+<img src="https://raw.githubusercontent.com/mobileappdevhm/only_android_app/master/Images/Sprint3/Login.png" width="300">
 
 ### Navigate through the app
 
