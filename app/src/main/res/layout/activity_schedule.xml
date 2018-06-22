@@ -11,53 +11,6 @@
     tools:openDrawer="start">
 
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/schedule_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@color/colorTitleText"
-        app:title="Schedule" />
-
-    <RadioGroup
-        android:id="@+id/week"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schedule_toolbar">
-
-        <RadioButton
-            android:id="@+id/monday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-
-            android:text="Mon" />
-
-        <RadioButton
-            android:id="@+id/tuesday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tue" />
-
-        <RadioButton
-            android:id="@+id/wednesday"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Wed" />
-
     <!--
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -85,16 +38,6 @@
             <include layout="@layout/schedule1"/>
         </FrameLayout>
 
-
-    <ScrollView
-        android:id="@+id/schedule_scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="449dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/week">
 
     </LinearLayout>
 
