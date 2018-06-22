@@ -10,7 +10,8 @@ More and more MUAS students wanting to do an exchange year and visiting the Univ
 
 ### Navigate through the app
 
-Students should be able to navigate easy and fast through our application. 
+Students should be able to navigate easy and fast through our application.
+
 <img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/GridView_Sprint3.png" width="300">
 
 ### Department
@@ -22,14 +23,17 @@ The app provides a list with all departments and which courses are available for
 ### Favorites
 
 To improve the user expierence the android app allows students to mark courses as their favorites. Those will be saved, no need to search again for your favorites :smile:!
+
 <img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Favorites_Sprint3.png" width="300">
 
 ### Schedule
 
 To make sure exchange students are not choosing two courses at the same day and time, the app is able to show a schedule.
+
 <img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Schedule.png" width="300">
 
 ### Locations
 
 Most of our exchange Students are new to Germany and Munich, to help them finding the right departments the app has three maps with all campuses our University has.
+
 <img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Maps.png" width="300">
