@@ -1,4 +1,4 @@
 theme: jekyll-theme-cayman
 title: Android CiE-App
 description: An Application which helps MUAS students having an easier way to sign up for courses
-google_analytics: true
+google_analytics:
