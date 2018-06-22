@@ -15,6 +15,7 @@ For the third sprint our Team was focused on fixing bugs, adding the pages navig
 ### Department
 
 ![Departments](https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Departments.png)
+![departments](https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Departments.png)
 
 ### Courses from nine
 
