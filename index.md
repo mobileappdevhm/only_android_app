@@ -6,7 +6,7 @@ For the third sprint our Team was focused on fixing bugs, adding the pages navig
 
 ### Login
 
-[Login](https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Login.png)
+![Login](https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Login.png | absolute_url)
 
 ### Grid View
 
@@ -15,7 +15,6 @@ For the third sprint our Team was focused on fixing bugs, adding the pages navig
 ### Department
 
 ![Departments](https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Departments.png)
-![departments](https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Departments.png)
 
 ### Courses from nine
 
