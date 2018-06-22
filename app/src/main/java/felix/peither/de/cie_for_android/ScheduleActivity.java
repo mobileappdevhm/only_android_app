@@ -1,9 +1,16 @@
 package felix.peither.de.cie_for_android;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -16,10 +23,14 @@ import java.util.List;
 import felix.peither.de.cie_for_android.CourseData.Course;
 import felix.peither.de.cie_for_android.NetworkRunnables.CourseGetter;
 
-public class ScheduleActivity extends AppCompatActivity {
+public class ScheduleActivity extends NavigationDrawer {
 
     private SharedPreferences favorites;
     private SharedPreferences.Editor favorites_editor;
+
+
+    Toolbar schedule_toolbar;
+    private DrawerLayout drawer;
 
     private static final String SHARED_PREFS_NAME = "FAVORITES";
 
@@ -30,7 +41,33 @@ public class ScheduleActivity extends AppCompatActivity {
     RadioGroup rg;
     RadioButton monday;
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_courses:
+                Intent intent = new Intent(ScheduleActivity.this, CoursesActivity.class);
+                startActivity(intent);
+                break;
 
+            case R.id.nav_favorites:
+                intent = new Intent(ScheduleActivity.this, FavoritesActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_locations:
+                intent = new Intent(ScheduleActivity.this, LocationsActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_schedule:
+                intent = new Intent(ScheduleActivity.this, ScheduleActivity.class);
+                startActivity(intent);
+                break;
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +83,17 @@ public class ScheduleActivity extends AppCompatActivity {
 
 
         rg = (RadioGroup) findViewById(R.id.week);
+
+        Toolbar toolbar = findViewById(R.id.schedule_toolbar);
+        setSupportActionBar(toolbar);
+
+        drawer = findViewById(R.id.drawerLayout);
+        NavigationView navigationView = findViewById(R.id.nav_view2);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer. addDrawerListener(toggle);
+        toggle.syncState();
 
 
         CourseGetter getter = new CourseGetter();
@@ -97,7 +145,6 @@ public class ScheduleActivity extends AppCompatActivity {
 
 
 
-
     }
 
     private void coursesRefresh(String day, List<Course> course_list, LinearLayout.LayoutParams match_parent_ll,  LinearLayout inner_layout){
@@ -125,5 +172,14 @@ public class ScheduleActivity extends AppCompatActivity {
 
 
         sv.addView(inner_layout);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

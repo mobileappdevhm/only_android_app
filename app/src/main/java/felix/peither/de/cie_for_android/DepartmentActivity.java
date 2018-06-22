@@ -7,7 +7,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.GridLayout;
 
-public class DepartmentActivity extends AppCompatActivity {
+public class DepartmentActivity extends NavigationDrawer {
 
     GridLayout mainGrid;
     CardView department_4;
