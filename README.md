@@ -1,24 +1,39 @@
-# CiE Android App - Team 3
+# Android CiE app
 
-Android Studio 3.1.2
+More and more MUAS students wanting to do an exchange year and visiting the University of Applied Science Munich, also called Hochschule München. Therefore our University has many courses in englisch, those are called Courses in English. Before now the process to submit for any courses were time consuming and complicated. To help the MUAS students we have created an app which should be simple and easy to use.
 
-This app is coded in Java an therefore only works on android.
+## Our Features
 
-### Development
+### Login
 
-You can take a look at our progress during each sprint in here:
+<img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Login.png" width="300">
 
-**Sprint 1**
+### Navigate through the app
 
-* [Backlog Sprint 1](https://docs.google.com/document/d/1TDKr-gDvjoQkNaqJfvYGT2VE66yA4puGP4riXLWrfc0/edit?usp=sharing)
+Students should be able to navigate easy and fast through our application.
 
-* [Sprint 1](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_1_Page)
+<img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/GridView_Sprint3.png" width="300">
 
-**Sprint 2**
+### Department
 
- * [Backlog Sprint 2](https://docs.google.com/document/d/12B-3g0BlvA14SyQxIfW3M9O-VjtweqJgXd6Zrzy__z4/edit?usp=sharing)
+The app provides a list with all departments and which courses are available for each department.
+<img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Departments.png" width="300">
+<img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Courses_Sprint3.png" width="300">
 
-* [Sprint 2](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_2_Page)
+### Favorites
 
+To improve the user expierence the android app allows students to mark courses as their favorites. Those will be saved, no need to search again for your favorites :smile: !
 
-[![Build Status](https://travis-ci.org/freeCodeCamp/how-to-contribute-to-open-source.svg?branch=master)](https://travis-ci.org/mobileappdevhm/only_android_app) [![Coverage Status](https://coveralls.io/repos/github/mobileappdevhm/only_android_app/badge.svg)](https://coveralls.io/github/mobileappdevhm/only_android_app)
+<img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Favorites_Sprint3.png" width="300">
+
+### Schedule
+
+To make sure exchange students are not choosing two courses at the same day and time, the app is able to show a schedule.
+
+<img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Schedule.png" width="300">
+
+### Locations
+
+Most of our exchange Students are new to Germany and Munich, to help them finding the right departments the app has three maps with all campuses our University has.
+
+<img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Maps.png" width="300">
