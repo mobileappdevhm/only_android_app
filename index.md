@@ -22,7 +22,7 @@ The app provides a list with all departments and which courses are available for
 
 ### Favorites
 
-To improve the user expierence the android app allows students to mark courses as their favorites. Those will be saved, no need to search again for your favorites :smile:!
+To improve the user expierence the android app allows students to mark courses as their favorites. Those will be saved, no need to search again for your favorites :smile: !
 
 <img src="https://github.com/mobileappdevhm/only_android_app/blob/master/Images/Sprint3/Favorites_Sprint3.png" width="300">
 
