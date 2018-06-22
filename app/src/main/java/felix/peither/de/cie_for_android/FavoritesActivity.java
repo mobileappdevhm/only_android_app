@@ -1,12 +1,19 @@
 package felix.peither.de.cie_for_android;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -24,7 +31,7 @@ import felix.peither.de.cie_for_android.CourseData.Course;
 import felix.peither.de.cie_for_android.CourseData.Date;
 import felix.peither.de.cie_for_android.NetworkRunnables.CourseGetter;
 
-public class FavoritesActivity extends AppCompatActivity {
+public class FavoritesActivity extends NavigationDrawer {
 
     private SharedPreferences favorites;
     private SharedPreferences.Editor favorites_editor;
@@ -37,6 +44,35 @@ public class FavoritesActivity extends AppCompatActivity {
 
     ScrollView sv;
     Toolbar favorites_toolbar;
+    private DrawerLayout drawer;
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_courses:
+                Intent intent = new Intent(FavoritesActivity.this, CoursesActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_favorites:
+                intent = new Intent(FavoritesActivity.this, FavoritesActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_locations:
+                intent = new Intent(FavoritesActivity.this, LocationsActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_schedule:
+                intent = new Intent(FavoritesActivity.this, ScheduleActivity.class);
+                startActivity(intent);
+                break;
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +84,25 @@ public class FavoritesActivity extends AppCompatActivity {
 
         favorites_toolbar = (Toolbar) findViewById(R.id.favorites_toolbar);
         favorites_toolbar.setTitleTextColor(Color.WHITE);
+        /*
         favorites_toolbar.setNavigationIcon(R.drawable.ic_arrow_backward_white);
         favorites_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
-        });
+        });*/
+
+        Toolbar toolbar = findViewById(R.id.favorites_toolbar);
+        setSupportActionBar(toolbar);
+
+        drawer = findViewById(R.id.drawerLayout);
+        NavigationView navigationView = findViewById(R.id.nav_view2);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer. addDrawerListener(toggle);
+        toggle.syncState();
 
         //sv = (ScrollView) findViewById(R.id.favorites_scroll_view);
 
@@ -206,6 +254,15 @@ public class FavoritesActivity extends AppCompatActivity {
             }
 
             return convertView;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
     }
 }

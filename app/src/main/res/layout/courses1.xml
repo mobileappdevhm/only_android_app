@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NavigationDrawer"
-    android:fitsSystemWindows="true"
-    android:id="@+id/drawerLayout"
-    tools:openDrawer="start">
+    android:background="@drawable/gradient"
+    tools:context="felix.peither.de.cie_for_android.CoursesActivity">
 
-
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/courses_toolbar"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
         android:elevation="4dp"
         android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@color/colorTitleText"
         app:title="Courses" />
 
     <ImageView
@@ -48,31 +44,3 @@
 
     </ListView>
 </android.support.constraint.ConstraintLayout>
-
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <include layout="@layout/courses1"/>
-        </FrameLayout>
-
-    </LinearLayout>
-
-    <android.support.design.widget.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity= "start"
-        android:id="@+id/nav_view2"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/navigation_menu">
-
-    </android.support.design.widget.NavigationView>
-
-
-</android.support.v4.widget.DrawerLayout>
-
