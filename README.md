@@ -22,7 +22,7 @@ You can take a look at our progress during each sprint in here:
 
 **Sprint 3**
 
-* [Backlog Sprint 3]
+* [Backlog Sprint 3](https://docs.google.com/document/d/1Dlld8fGpLIl1b0uwr7rqKU4Eue2-HGZvRIdeYFhcxA8/edit)
 
 * [Sprint 3](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_3_page)
 
