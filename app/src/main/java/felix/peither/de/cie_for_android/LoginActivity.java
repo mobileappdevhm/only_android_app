@@ -32,7 +32,7 @@ import felix.peither.de.cie_for_android.NetworkRunnables.LogInValidater;
 public class LoginActivity extends AppCompatActivity {
 
     Toolbar toolbar;
-    MenuItem skipText;
+//    MenuItem skipText;
     LinearLayout linearLayout;
     ScrollView scrollView;
     ScrollView sv;
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         Info = (TextView) findViewById(R.id.tvInfo);
         Login = (Button) findViewById(R.id.btnLogin);
 
-        skipText = (MenuItem) findViewById(R.id.skip_login);
+//        skipText = (MenuItem) findViewById(R.id.skip_login);
 
         toolbar = (Toolbar) findViewById(R.id.log_in_toolbar);
         setSupportActionBar(toolbar);
@@ -78,28 +78,28 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.login_toolbar_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.skip_login || item.getItemId() == R.id.skip_login_icon){
-            startActivity(new Intent(this, SkippedLoginActivity.class));
-        }
-
-        return true;
-    }
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.login_toolbar_menu, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (item.getItemId() == R.id.skip_login || item.getItemId() == R.id.skip_login_icon){
+//            startActivity(new Intent(this, SkippedLoginActivity.class));
+//        }
+//
+//        return true;
+//    }
 
     private void validate (String userName, String userPassword) throws InterruptedException {
 
         List<Thread> allThreads = new ArrayList<>();
 
-        LogInValidater validater = new LogInValidater(userName, userPassword);
-        Thread validate = new Thread(validater);
+        LogInValidater validator = new LogInValidater(userName, userPassword);
+        Thread validate = new Thread(validator);
 
         try {
             validate.start();
@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
         if((userName.equals("admin")) && (userPassword.equals("123456"))) {
             Intent intent = new Intent(LoginActivity.this, SecondActivity.class);
             startActivity(intent);
-        } else if (!validater.isValid()) {
+        } else if (!validator.isValid()) {
             Toast.makeText(ctx, "Log in failed, please try again", Toast.LENGTH_LONG).show();
             counter--;
 
