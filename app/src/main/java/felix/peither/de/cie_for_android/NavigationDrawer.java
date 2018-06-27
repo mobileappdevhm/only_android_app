@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import felix.peither.de.cie_for_android.CourseData.Course;
+
 
 public class NavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -33,17 +35,22 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
                 break;
 
             case R.id.nav_favorites:
-                intent = new Intent(NavigationDrawer.this, CoursesActivity.class);
+                intent = new Intent(NavigationDrawer.this, FavoritesActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.nav_locations:
-                intent = new Intent(NavigationDrawer.this, CoursesActivity.class);
+                intent = new Intent(NavigationDrawer.this, LocationsActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.nav_schedule:
-                intent = new Intent(NavigationDrawer.this, CoursesActivity.class);
+                intent = new Intent(NavigationDrawer.this, ScheduleActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_privacy_policy:
+                intent = new Intent(NavigationDrawer.this, PrivacyPolicyActivity.class);
                 startActivity(intent);
                 break;
         }

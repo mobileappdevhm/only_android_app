@@ -24,9 +24,13 @@
         <activity android:name=".LocationsActivity" />
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".SkippedLoginActivity" />
-        <activity android:name=".NavigationDrawer"></activity>
+        <activity android:name=".NavigationDrawer" />
         <activity android:name=".DepartmentActivity" />
-        <activity android:name=".OtherDepartments"></activity>
+        <activity android:name=".OtherDepartments" />
+        <activity
+            android:name=".PrivacyPolicyActivity"
+            android:label="@string/title_activity_privacy_policy"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
