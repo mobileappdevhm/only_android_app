@@ -34,7 +34,7 @@ public class SecondActivity extends AppCompatActivity {
         card_favorites = (CardView) findViewById(R.id.cardFavorites);
         card_locations = (CardView) findViewById(R.id.cardLocations);
         card_schedule = (CardView) findViewById(R.id.cardSchedule);
-        card_contacts = (CardView) findViewById(R.id.cardContacts);
+        // card_contacts = (CardView) findViewById(R.id.cardContacts);
 
         // Firebase Analytics
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
@@ -71,6 +71,7 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        /*
         card_contacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +79,7 @@ public class SecondActivity extends AppCompatActivity {
                 startActivity(contacts_intent);
             }
         });
+        */
     }
 
 }
