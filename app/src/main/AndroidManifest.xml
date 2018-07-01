@@ -26,7 +26,6 @@
         <activity android:name=".SkippedLoginActivity" />
         <activity android:name=".NavigationDrawer" />
         <activity android:name=".DepartmentActivity" />
-        <activity android:name=".OtherDepartments" />
         <activity
             android:name=".PrivacyPolicyActivity"
             android:label="@string/title_activity_privacy_policy"
