@@ -26,5 +26,7 @@ You can take a look at our progress during each sprint in here:
 
 * [Sprint 3](https://github.com/mobileappdevhm/only_android_app/wiki/Sprint_3_page)
 
+[Website](https://mobileappdevhm.github.io/only_android_app/)
+
 
 [![Build Status](https://travis-ci.org/freeCodeCamp/how-to-contribute-to-open-source.svg?branch=master)](https://travis-ci.org/mobileappdevhm/only_android_app) [![Coverage Status](https://coveralls.io/repos/github/mobileappdevhm/only_android_app/badge.svg)](https://coveralls.io/github/mobileappdevhm/only_android_app)
